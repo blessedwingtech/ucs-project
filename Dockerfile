@@ -4,11 +4,13 @@ RUN apk add --no-cache libc6-compat openssl
 WORKDIR /app
 
 # Copie des fichiers de configuration package
-COPY package.json package-lock.json ./
+COPY package.json package-lock.json* ./
 # Copie du schéma Prisma
 COPY prisma ./prisma/
 
-RUN npm ci
+RUN npm install
+# Générer le client Prisma ici pour qu'il soit mis en cache avec les node_modules
+RUN npx prisma generate
 
 # Étape 2 : Builder
 FROM node:22-alpine AS builder
@@ -16,10 +18,7 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-# Génération du client Prisma (basé sur schema.prisma qui sera le postgres en prod)
-RUN npx prisma generate
-
-# Build de l'application Next.js (utilise output: 'standalone')
+# Build de l'application Next.js
 RUN npm run build
 
 # Étape 3 : Production Runner
