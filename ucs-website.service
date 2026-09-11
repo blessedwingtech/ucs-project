@@ -13,7 +13,7 @@ WorkingDirectory=/var/www/ucs
 
 # Variables d'environnement critiques pour le bon fonctionnement de Next.js
 Environment=NODE_ENV=production
-Environment=PORT=3000
+Environment=PORT=3006
 
 # Commande de démarrage. "npm start" est généralement suffisant.
 ExecStart=/usr/bin/npm start
