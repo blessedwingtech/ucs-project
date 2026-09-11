@@ -30,7 +30,8 @@ export default function NewAnnouncement() {
       revalidatePath("/announcements");
       revalidatePath("/");
       return { success: true };
-    } catch (error: any) {
+    } catch (err) {
+      const error = err as { code?: string };
       if (error.code === 'P2002') {
         return { error: "An announcement with this slug already exists." };
       }
