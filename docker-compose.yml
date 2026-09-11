@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  ucs-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ucs-website
+    restart: unless-stopped
+    ports:
+      # Expose sur le port 3006 de la machine hôte
+      - "3006:3000"
+    extra_hosts:
+      # Permet de joindre le PostgreSQL hôte via "host.docker.internal"
+      - "host.docker.internal:host-gateway"
+    env_file:
+      - .env

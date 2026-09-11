@@ -4,8 +4,8 @@
 
 echo "🚀 Démarrage du déploiement de UCS..."
 
-# 1. Récupération du code (si vous utilisez git, décommentez la ligne ci-dessous)
-# git pull origin main
+# 1. Récupération du code depuis GitHub
+git pull origin main
 
 # 2. Installation des dépendances
 echo "📦 Installation des dépendances..."
@@ -23,12 +23,12 @@ npx prisma db push # Note: En production stricte, utilisez 'npx prisma migrate d
 # Optionnel: Seed de la base de données si c'est le premier déploiement
 # npm run db:seed
 
-# 5. Build de l'application Next.js
-echo "🏗️ Build de l'application Next.js..."
-npm run build
+# 5. Build et Démarrage via Docker Compose
+echo "🐳 Déploiement via Docker Compose..."
+docker-compose up -d --build
 
-# 6. Redémarrage du processus avec Systemd
-echo "🔄 Redémarrage de l'application via Systemd..."
-sudo systemctl restart ucs-website
+# Note : Prisma DB push est exécutable via : docker exec ucs-website npx prisma db push
+echo "🗄️ Application des migrations Prisma dans le conteneur..."
+docker exec ucs-website npx prisma db push
 
-echo "✅ Déploiement terminé avec succès !"
+echo "✅ Déploiement Docker terminé avec succès !"
