@@ -1,0 +1,509 @@
+PROJECT: Universe Center Services (UCS) — Marketing Website + Admin Announcements System
+
+TECH STACK (strict requirements):
+- Framework: Next.js 15+ (App Router, TypeScript, Server Components where sensible)
+- Styling: Tailwind CSS
+- ORM: Prisma, configured for dual-provider support:
+  - Development: SQLite (file-based, e.g. ./prisma/dev.db) — zero external setup required
+  - Production: PostgreSQL via DATABASE_URL environment variable
+- Auth: NextAuth.js (Credentials provider) or a simple custom session/JWT auth — single "owner/admin" account only, NO public registration route
+- Deployment target: Vercel or any Node host, with a hosted Postgres instance (Neon/Supabase/Railway) in production
+
+GOAL:
+Build the complete public marketing website for Universe Center Services (UCS), a language
+and business solutions company, using the exact content provided below. Add an admin-only
+dashboard where the site owner can create, edit, publish/unpublish, and delete
+"Announcements/News" posts that appear on the public site.
+
+=== SITE CONTENT (use verbatim — do not invent additional services or copy) ===
+
+[Paste the full UCS content document here — Home, About Us, Language Services,
+Translation & Localization, Professional Linguist Network, BPO Solutions, Industries We
+Support, Why Work With UCS, Partner With UCS, Careers, Contact, Final Positioning]
+
+=== PAGES TO BUILD ===
+1. / (Home) — hero, services overview grid, industries teaser, "Why UCS" highlights,
+   latest 3 published announcements, CTA to contact/partner
+2. /about
+3. /services/interpretation
+4. /services/translation
+5. /services/bpo
+6. /industries
+7. /why-ucs
+8. /partner
+9. /careers (with recruitment contact: hiring.ucs@gmail.com)
+10. /contact (with contact form + info@universecenterservices.com displayed)
+11. /announcements — public list of published announcements (newest first) +
+    /announcements/[slug] detail page
+12. /admin (protected) — login + dashboard to manage announcements
+
+=== DATA MODEL (Prisma schema) ===
+model Announcement {
+  id           String    @id @default(cuid())
+  title        String
+  slug         String    @unique
+  excerpt      String?
+  content      String    // markdown
+  coverImageUrl String?
+  published    Boolean   @default(false)
+  publishedAt  DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}
+
+model AdminUser {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+}
+
+model ContactSubmission {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  message   String
+  createdAt DateTime @default(now())
+}
+
+=== FUNCTIONAL REQUIREMENTS ===
+
+Public site:
+- Fully responsive (mobile-first), professional B2B design — no generic purple AI-gradient
+  templates. Deep navy + a secondary accent color (teal or gold).
+- SEO: proper Next.js metadata API per page, Open Graph tags, sensible page titles/descriptions
+- Sticky header nav: Home, About, Services (dropdown: Interpretation / Translation / BPO),
+  Industries, Why UCS, Partner, Careers, Contact
+- Footer with contact emails, quick links, and a "Latest Announcements" teaser
+- Contact form (name, email, message) → saved to ContactSubmission table. Abstract the
+  email-notification step behind a single function (e.g. lib/email.ts) so a provider like
+  Resend can be plugged in later without touching the form logic.
+- Industries section: render as an icon grid using lucide-react icons (map the emoji list
+  in the content to appropriate icons — Healthcare, Legal, Banking & Finance, Business,
+  Education, NGOs, Customer Service, Technology)
+- Announcements: public list shows only published=true, sorted by publishedAt desc;
+  detail page via slug
+
+Admin (owner-only):
+- /admin/login — email + password, session-based, protected via Next.js middleware
+  (redirect to /admin/login if unauthenticated for any /admin/* route)
+- /admin/announcements — table of all announcements (draft + published), with
+  edit / delete / publish-toggle actions
+- /admin/announcements/new and /admin/announcements/[id]/edit — form: title, slug
+  (auto-generated from title, editable), excerpt, content (markdown textarea with live
+  preview is a bonus, plain textarea is fine), cover image URL, published toggle
+- No public sign-up route anywhere in the app — the only account is the seeded owner account
+- Show createdAt / updatedAt on each announcement in the admin list
+
+=== DATABASE & ENVIRONMENT SETUP ===
+- Prisma configured so that:
+  - Local dev uses `provider = "sqlite"`, `url = "file:./dev.db"` — must work with a plain
+    `npm install && npm run dev`, no external DB required
+  - Production uses `provider = "postgresql"`, `url = env("DATABASE_URL")`
+  - Document clearly in the README which mechanism you used to switch providers between
+    environments (e.g. separate schema files selected by an npm script, or a single schema
+    driven by an env-based provider variable) — pick whichever is stable in the current
+    Prisma version and explain the tradeoff briefly in the README.
+- Provide a seed script (prisma/seed.ts) that creates:
+  - One AdminUser using ADMIN_EMAIL / ADMIN_PASSWORD from .env (hash the password with
+    bcrypt before storing — never store it in plain text)
+  - 2 example announcements (one published, one draft) so the app isn't empty on first run
+- Provide a complete .env.example with: DATABASE_URL, NEXTAUTH_SECRET (or equivalent),
+  ADMIN_EMAIL, ADMIN_PASSWORD, RESEND_API_KEY (optional, for future email notifications)
+
+=== DELIVERABLES ===
+- Fully working Next.js app, runnable locally with `npm install && npm run dev` on SQLite
+  out of the box
+- Prisma migrations that work for both the SQLite dev setup and the Postgres prod setup
+- README.md covering: local setup steps, how to seed the admin account, how to switch to
+  Postgres for production, required environment variables, and deployment steps (Vercel +
+  hosted Postgres)
+- All pages populated with the real content provided above — no lorem ipsum, no placeholder
+  service descriptions
+
+=== EXECUTION PLAN (do this in order, verify each step before moving on) ===
+1. Scaffold the Next.js + TypeScript + Tailwind project
+2. Set up Prisma with SQLite (dev) and the Postgres-ready schema/config for prod, plus the
+   seed script
+3. Build all public pages and populate them with the provided content
+4. Build the contact form and wire it to ContactSubmission storage
+5. Build admin authentication (login, protected middleware, logout)
+6. Build the admin CRUD interface for Announcements
+7. Wire published announcements into the public /announcements pages and the homepage
+   "Latest News" section
+8. Responsive design pass + SEO metadata pass across all pages
+9. Write the README
+
+After each step, run the dev server and actually test the corresponding flow (e.g., after
+step 6, log in, create a draft, publish it, and confirm it appears correctly on the public
+site) before proceeding to the next step.
+________________________
+Chak kote ou wè (---) se pou yon lòt pati
+
+
+*Universe Center Services (UCS)*
+
+Language & Business Solutions Provider
+
+Breaking Language Barriers. Powering Business Success.
+
+Universe Center Services (UCS) provides professional language solutions and business support services designed to help organizations communicate effectively, improve customer experiences, and operate more efficiently.
+
+Through our growing network of qualified language professionals, remote specialists, and strategic partnerships, UCS delivers reliable interpretation, translation, multilingual communication, and Business Process Outsourcing (BPO) solutions.
+
+
+---
+
+HOME
+
+Welcome to Universe Center Services (UCS)
+
+Your Partner for Language Solutions, Communication Support, and Business Services.
+
+At UCS, we believe effective communication is the foundation of successful global interactions.
+
+We connect organizations with professional language experts and remote business support specialists to help overcome communication challenges and improve operational efficiency.
+
+Our Services
+
+Interpretation Solutions
+
+Translation & Localization
+
+Multilingual Communication Support
+
+Customer Experience Solutions
+
+Business Process Outsourcing (BPO)
+
+Remote Professional Services
+
+
+
+---
+
+ABOUT US
+
+Who We Are
+
+Universe Center Services (UCS) is a growing Language and Business Solutions Provider specializing in multilingual communication and remote business support.
+
+Our mission is to help organizations connect with diverse communities by providing professional, culturally appropriate, and reliable solutions.
+
+Through our professional network and partnerships, we support clients across different industries with flexible solutions adapted to their needs.
+
+
+---
+
+OUR LANGUAGE SERVICES
+
+Multilingual Communication Solutions
+
+UCS provides language services through qualified professionals and trusted partners.
+
+Interpretation Services
+
+Our solutions include:
+
+Over-the-Phone Interpretation (OPI)
+
+Video Remote Interpretation (VRI)
+
+On-Site Interpretation
+
+Scheduled Interpretation
+
+Medical Interpretation
+
+Legal Interpretation
+
+Business Interpretation
+
+Educational Interpretation
+
+Customer Support Interpretation
+
+
+Core Languages
+
+Haitian Creole
+
+English
+
+French
+
+Spanish
+
+Portuguese
+
+
+Additional Languages Available Through Our Professional Network
+
+Arabic
+
+Mandarin Chinese
+
+Cantonese
+
+Japanese
+
+Korean
+
+German
+
+Italian
+
+Dutch
+
+Russian
+
+Turkish
+
+Hindi
+
+Vietnamese
+
+Tagalog
+
+Polish
+
+Romanian
+
+Greek
+
+Other languages upon request
+
+
+(Language availability depends on project requirements and professional availability.)
+
+
+---
+
+TRANSLATION & LOCALIZATION
+
+Professional Content Solutions
+
+UCS provides multilingual content services including:
+
+Translation
+
+Business documents
+
+Medical documents
+
+Legal documents
+
+Educational materials
+
+Marketing content
+
+Websites
+
+Digital platforms
+
+
+Quality Services
+
+Editing
+
+Proofreading
+
+Linguistic Quality Assurance (LQA)
+
+Localization
+
+Terminology Management
+
+
+
+---
+
+PROFESSIONAL LINGUIST NETWORK
+
+Connecting Organizations With Language Professionals
+
+UCS works with a growing network of interpreters, translators, and language specialists who provide professional communication support according to client requirements.
+
+Our network model allows UCS to provide flexible language solutions while maintaining professional standards.
+
+Our network includes:
+
+Interpreters
+
+Translators
+
+Language Specialists
+
+Localization Professionals
+
+Transcription Specialists
+
+
+
+---
+
+BPO SOLUTIONS
+
+Business Process Outsourcing Services
+
+UCS provides remote business support solutions designed to help organizations improve productivity and customer engagement.
+
+Customer Support
+
+Multilingual customer service
+
+Call support
+
+Email support
+
+Chat support
+
+Client follow-up
+
+
+Administrative Support
+
+Virtual assistance
+
+Data entry
+
+Document processing
+
+Appointment scheduling
+
+Research assistance
+
+Back-office support
+
+
+Business Support
+
+Lead generation
+
+Appointment setting
+
+Customer relationship management
+
+Remote workforce solutions
+
+
+
+---
+
+INDUSTRIES WE SUPPORT
+
+UCS provides solutions for:
+
+🏥 Healthcare Organizations
+⚖️ Legal Services
+🏦 Banking & Finance
+🏢 Businesses & Corporations
+🎓 Education
+🌎 NGOs & International Organizations
+📞 Customer Service Operations
+💻 Technology Companies
+
+
+---
+
+WHY WORK WITH UCS?
+
+Our Commitment
+
+UCS focuses on:
+
+✅ Professional communication
+✅ Cultural understanding
+✅ Confidentiality
+✅ Flexible solutions
+✅ Quality-focused processes
+✅ Reliable partnerships
+
+Our goal is to create long-term value for clients through professional human expertise and modern technology.
+
+
+---
+
+PARTNER WITH UCS
+
+Strategic Collaboration Opportunities
+
+UCS welcomes partnerships with:
+
+Language professionals
+
+Interpreters
+
+Translators
+
+BPO specialists
+
+International service providers
+
+Organizations seeking multilingual support
+
+
+Together, we build solutions that connect people and businesses globally.
+
+
+---
+
+CAREERS
+
+Join Our Professional Network
+
+UCS is looking for qualified professionals interested in working with language and business projects.
+
+Opportunities:
+
+Interpreters
+
+Translators
+
+Customer Support Representatives
+
+Virtual Assistants
+
+Language Specialists
+
+
+Requirements may include:
+
+Strong language proficiency
+
+Communication skills
+
+Computer skills
+
+Reliable equipment
+
+Professional work environment
+
+Confidentiality awareness
+
+
+Recruitment Contact:
+hiring.ucs@gmail.com
+
+
+---
+
+CONTACT
+
+Universe Center Services (UCS)
+
+Language & Business Solutions Provider
+
+Email: info@universecenterservices.com
+Careers: hiring.ucs@gmail.com
+
+Website: www.universecenterservices.com
+
+
+---
+
+FINAL POSITIONING
+
+Universe Center Services (UCS) is a Language and Business Solutions Provider delivering interpretation, translation, multilingual communication, and Business Process Outsourcing solutions through professional networks and strategic partnerships.
+
+Our mission is to connect people, organizations, and communities through language, technology, and professional expertise.

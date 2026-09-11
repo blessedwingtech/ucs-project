@@ -1,0 +1,31 @@
+[Unit]
+Description=Universe Center Services (UCS) Next.js App
+After=network.target
+# Décommentez la ligne suivante si PostgreSQL est sur le même serveur
+# Requires=postgresql.service
+
+[Service]
+Type=simple
+# Remplacez "ubuntu" par le nom d'utilisateur réel sur votre serveur
+User=ubuntu
+# Remplacez "/var/www/ucs" par le chemin absolu vers votre projet
+WorkingDirectory=/var/www/ucs
+
+# Variables d'environnement critiques pour le bon fonctionnement de Next.js
+Environment=NODE_ENV=production
+Environment=PORT=3000
+
+# Commande de démarrage. "npm start" est généralement suffisant.
+ExecStart=/usr/bin/npm start
+
+# Redémarrage automatique en cas de crash
+Restart=always
+RestartSec=3
+
+# Sécurité standard
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=ucs-website
+
+[Install]
+WantedBy=multi-user.target
