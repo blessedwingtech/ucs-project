@@ -9,8 +9,8 @@ COPY package.json package-lock.json* ./
 COPY prisma ./prisma/
 
 RUN npm install
-# Générer le client Prisma ici pour qu'il soit mis en cache avec les node_modules
-RUN npx prisma generate
+    # Générer le client Prisma ici pour qu'il soit mis en cache avec les node_modules
+    RUN npx prisma@5.21.0 generate
 
 # Étape 2 : Builder
 FROM node:22-alpine AS builder
