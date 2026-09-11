@@ -8,8 +8,8 @@ services:
     container_name: ucs-website
     restart: unless-stopped
     ports:
-      # Expose sur le port 3006 de la machine hôte
-      - "3006:3000"
+      # Expose sur le port 3015 de la machine hôte pour éviter tout conflit
+      - "3015:3000"
     extra_hosts:
       # Permet de joindre le PostgreSQL hôte via "host.docker.internal"
       - "host.docker.internal:host-gateway"
