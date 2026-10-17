@@ -8,5 +8,6 @@ services:
     network_mode: "host"
     environment:
       - PORT=3015
+      - HOSTNAME=0.0.0.0
     env_file:
       - .env
