@@ -35,9 +35,14 @@ export async function resolveDirectImageUrl(url: string | null | undefined): Pro
       });
       if (response.ok) {
         const html = await response.text();
-        const match = html.match(/"url":"(https:\/\/[^"]+\.(png|jpg|jpeg|webp|gif|svg)[^"]*)"/i);
+        // Look for the actual uploaded photo URL in the Next.js payload (both escaped \" and unescaped ")
+        const match = html.match(/\\?"url\\?"\s*:\s*\\?"(https?:\\?\/\\?\/[^"\\]+\.(?:png|jpg|jpeg|webp|gif|svg)[^"\\]*)\\?"/i)
+          || html.match(/(https:\/\/[^"'\s<>\\]*?(?:memotonik|images|uploads|photos)[^"'\s<>\\]*?\.(?:png|jpg|jpeg|webp|gif|svg)[^"'\s<>\\]*)/i);
         if (match && match[1]) {
-          return match[1].replace(/\\u0026/g, '&');
+          const directUrl = match[1].replace(/\\/g, '').replace(/u0026/g, '&');
+          if (!directUrl.includes('og-image.png')) {
+            return directUrl;
+          }
         }
       }
     } catch (err) {
