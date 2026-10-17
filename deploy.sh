@@ -2,6 +2,8 @@
 # deploy.sh
 # Script de déploiement pour Universe Center Services (UCS)
 
+set -e
+
 echo "🚀 Démarrage du déploiement de UCS..."
 
 # 1. Récupération propre et forcée depuis GitHub (évite tout conflit de merge en production)
@@ -16,15 +18,13 @@ cp prisma/schema.postgres.prisma prisma/schema.prisma
 echo "🐳 Déploiement via Docker Compose..."
 docker-compose up -d --build
 
-# 4. Migration Prisma dans le conteneur
+# 4. Migration Prisma dans le conteneur (--yes pour ne jamais demander confirmation)
 echo "🗄️ Application des migrations Prisma dans le conteneur..."
-# L'utilisation de --accept-data-loss ou similaire peut être requise si db push demande confirmation
-# Mais pour éviter que le prompt ne bloque (comme vu précédemment), on s'assure d'exécuter de façon non interactive
-docker exec ucs-website npx prisma@5.21.0 db push --accept-data-loss --skip-generate
+docker exec ucs-website npx --yes prisma@5.21.0 db push --accept-data-loss --skip-generate
 
 # 5. Initialisation de l'administrateur et du contenu par défaut (Seed)
 echo "🌱 Initialisation de l'administrateur et du contenu..."
-npx prisma@5.21.0 generate --schema=prisma/schema.postgres.prisma
-npx tsx prisma/seed.ts
+npx --yes prisma@5.21.0 generate --schema=prisma/schema.postgres.prisma
+npx --yes tsx prisma/seed.ts
 
 echo "✅ Déploiement et initialisation terminés avec succès !"
