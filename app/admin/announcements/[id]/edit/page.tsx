@@ -1,5 +1,6 @@
 import AnnouncementForm from "@/components/AnnouncementForm";
 import { prisma } from "@/lib/prisma";
+import { resolveDirectImageUrl } from "@/lib/images";
 import { revalidatePath } from "next/cache";
 import { notFound } from "next/navigation";
 
@@ -35,6 +36,8 @@ export default async function EditAnnouncement({ params }: { params: Promise<{ i
         publishedAt = null;
       }
 
+      const resolvedImageUrl = await resolveDirectImageUrl(coverImageUrl);
+
       await prisma.announcement.update({
         where: { id },
         data: {
@@ -42,7 +45,7 @@ export default async function EditAnnouncement({ params }: { params: Promise<{ i
           slug,
           excerpt: excerpt || null,
           content,
-          coverImageUrl: coverImageUrl || null,
+          coverImageUrl: resolvedImageUrl || null,
           published,
           publishedAt,
         }

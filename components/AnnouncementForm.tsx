@@ -115,14 +115,41 @@ export default function AnnouncementForm({
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-slate-700 mb-2">Cover Image URL</label>
+          <label className="block text-sm font-medium text-slate-700 mb-1">Cover Image URL</label>
+          <p className="text-xs text-slate-500 mb-2">
+            URL directe de l&apos;image (ex: .jpg, .png) ou lien de partage cloud (MemoTonik, Google Drive, Dropbox, etc.).
+          </p>
           <input 
             type="url" 
             value={coverImageUrl}
             onChange={(e) => setCoverImageUrl(e.target.value)}
-            className="w-full px-4 py-2 rounded-md border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-blue"
-            placeholder="https://example.com/image.jpg"
+            className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-blue"
+            placeholder="https://example.com/image.jpg ou https://memo.bittonik.com/share/photo/..."
           />
+          {coverImageUrl && (
+            <div className="mt-3 p-3 bg-slate-50 border border-slate-200 rounded-xl">
+              <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-2">Aperçu :</span>
+              <div className="relative h-44 w-full rounded-lg overflow-hidden bg-slate-100 flex items-center justify-center border">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img 
+                  src={coverImageUrl} 
+                  alt="Aperçu couverture" 
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    // Si l'URL est un lien de partage (ex: MemoTonik), Next.js la résoudra lors de la sauvegarde
+                    (e.target as HTMLElement).style.display = 'none';
+                    const parent = (e.target as HTMLElement).parentElement;
+                    if (parent && !parent.querySelector('.preview-error')) {
+                      const div = document.createElement('div');
+                      div.className = 'preview-error text-center p-4 text-xs text-slate-500';
+                      div.innerHTML = '<span>Lien de partage détecté. L&apos;image sera automatiquement convertie et affichée lors de la publication.</span>';
+                      parent.appendChild(div);
+                    }
+                  }}
+                />
+              </div>
+            </div>
+          )}
         </div>
 
         <div>

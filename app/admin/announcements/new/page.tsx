@@ -1,5 +1,6 @@
 import AnnouncementForm from "@/components/AnnouncementForm";
 import { prisma } from "@/lib/prisma";
+import { resolveDirectImageUrl } from "@/lib/images";
 import { revalidatePath } from "next/cache";
 
 export default function NewAnnouncement() {
@@ -15,13 +16,15 @@ export default function NewAnnouncement() {
     const published = formData.get("published") === "true";
 
     try {
+      const resolvedImageUrl = await resolveDirectImageUrl(coverImageUrl);
+
       await prisma.announcement.create({
         data: {
           title,
           slug,
           excerpt: excerpt || null,
           content,
-          coverImageUrl: coverImageUrl || null,
+          coverImageUrl: resolvedImageUrl || null,
           published,
           publishedAt: published ? new Date() : null,
         }
