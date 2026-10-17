@@ -23,6 +23,7 @@ RUN npm run build
 
 # Étape 3 : Production Runner
 FROM node:22-alpine AS runner
+RUN apk add --no-cache libc6-compat openssl
 WORKDIR /app
 
 ENV NODE_ENV=production
