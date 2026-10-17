@@ -4,8 +4,9 @@
 
 echo "🚀 Démarrage du déploiement de UCS..."
 
-# 1. Récupération du code depuis GitHub
-git pull origin main
+# 1. Récupération propre et forcée depuis GitHub (évite tout conflit de merge en production)
+git fetch origin main
+git reset --hard origin/main
 
 # 2. Configuration du schéma de base de données (PostgreSQL pour la Prod)
 echo "🗄️ Configuration du schéma Prisma pour PostgreSQL..."
