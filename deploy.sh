@@ -21,4 +21,9 @@ echo "🗄️ Application des migrations Prisma dans le conteneur..."
 # Mais pour éviter que le prompt ne bloque (comme vu précédemment), on s'assure d'exécuter de façon non interactive
 docker exec ucs-website npx prisma@5.21.0 db push --accept-data-loss --skip-generate
 
-echo "✅ Déploiement Docker terminé avec succès !"
+# 5. Initialisation de l'administrateur et du contenu par défaut (Seed)
+echo "🌱 Initialisation de l'administrateur et du contenu..."
+npx prisma@5.21.0 generate --schema=prisma/schema.postgres.prisma
+npx tsx prisma/seed.ts
+
+echo "✅ Déploiement et initialisation terminés avec succès !"
