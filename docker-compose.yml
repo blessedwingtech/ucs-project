@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   ucs-app:
     build:
@@ -7,11 +5,8 @@ services:
       dockerfile: Dockerfile
     container_name: ucs-website
     restart: unless-stopped
-    ports:
-      # Expose sur le port 3015 de la machine hôte pour éviter tout conflit
-      - "3015:3000"
-    extra_hosts:
-      # Permet de joindre le PostgreSQL hôte via "host.docker.internal"
-      - "host.docker.internal:host-gateway"
+    network_mode: "host"
+    environment:
+      - PORT=3015
     env_file:
       - .env
