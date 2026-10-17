@@ -17,24 +17,28 @@ export default function Navbar() {
           {/* Brand Logo */}
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="group flex items-center gap-3">
-              <img src="/logo-ucs.jpg" alt="Universe Center Services" className="h-12 w-auto" />
+              <img src="/icon.svg" alt="UCS Logo" className="h-11 w-11 rounded-xl shadow-md group-hover:scale-105 transition-transform" />
+              <div className="flex flex-col">
+                <span className="text-xl font-black tracking-tight text-white group-hover:text-amber-300 transition-colors leading-none">UCS</span>
+                <span className="text-[10px] font-bold tracking-wider text-slate-300 uppercase mt-0.5">Universe Center Services</span>
+              </div>
             </Link>
           </div>
           
           {/* Desktop Navigation Links */}
           <div className="hidden lg:flex space-x-8 items-center text-sm font-semibold">
-            <Link href="/" className="text-slate-200 hover:text-brand-blue transition-colors py-2">Home</Link>
-            <Link href="/about" className="text-slate-200 hover:text-brand-blue transition-colors py-2">About</Link>
+            <Link href="/" className="text-slate-100 hover:text-amber-300 transition-colors py-2">Home</Link>
+            <Link href="/about" className="text-slate-100 hover:text-amber-300 transition-colors py-2">About</Link>
             
             {/* Services Dropdown */}
             <div className="relative group">
               <button 
-                className="flex items-center text-slate-200 hover:text-brand-blue transition-colors py-2 focus:outline-none"
+                className="flex items-center text-slate-100 hover:text-amber-300 transition-colors py-2 focus:outline-none"
                 onMouseEnter={() => setServicesOpen(true)}
                 onClick={() => setServicesOpen(!servicesOpen)}
               >
                 <span>Services</span>
-                <ChevronDown className="ml-1 h-4 w-4 text-slate-400 group-hover:text-brand-blue transition-transform duration-200 group-hover:rotate-180" />
+                <ChevronDown className="ml-1 h-4 w-4 text-slate-300 group-hover:text-amber-300 transition-transform duration-200 group-hover:rotate-180" />
               </button>
               
               <div 
@@ -47,7 +51,7 @@ export default function Navbar() {
                   <Link 
                     href="/services/interpretation" 
                     onClick={() => setServicesOpen(false)}
-                    className="flex items-center px-3 py-2.5 rounded-lg text-sm text-slate-700 hover:bg-slate-50 hover:text-brand-navy transition-colors group/item"
+                    className="flex items-center px-3 py-2.5 rounded-lg text-sm text-slate-700 hover:bg-blue-50 hover:text-brand-blue transition-colors group/item"
                   >
                     <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-brand-blue mr-3 group-hover/item:bg-brand-blue group-hover/item:text-white transition-colors">
                       <MessageSquare className="w-4 h-4" />
@@ -61,7 +65,7 @@ export default function Navbar() {
                   <Link 
                     href="/services/translation" 
                     onClick={() => setServicesOpen(false)}
-                    className="flex items-center px-3 py-2.5 rounded-lg text-sm text-slate-700 hover:bg-slate-50 hover:text-brand-navy transition-colors group/item"
+                    className="flex items-center px-3 py-2.5 rounded-lg text-sm text-slate-700 hover:bg-blue-50 hover:text-brand-blue transition-colors group/item"
                   >
                     <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-brand-blue mr-3 group-hover/item:bg-brand-blue group-hover/item:text-white transition-colors">
                       <Globe2 className="w-4 h-4" />
@@ -75,7 +79,7 @@ export default function Navbar() {
                   <Link 
                     href="/services/bpo" 
                     onClick={() => setServicesOpen(false)}
-                    className="flex items-center px-3 py-2.5 rounded-lg text-sm text-slate-700 hover:bg-slate-50 hover:text-brand-navy transition-colors group/item"
+                    className="flex items-center px-3 py-2.5 rounded-lg text-sm text-slate-700 hover:bg-blue-50 hover:text-brand-blue transition-colors group/item"
                   >
                     <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-brand-blue mr-3 group-hover/item:bg-brand-blue group-hover/item:text-white transition-colors">
                       <HeadphonesIcon className="w-4 h-4" />
@@ -89,16 +93,16 @@ export default function Navbar() {
               </div>
             </div>
 
-            <Link href="/industries" className="text-slate-200 hover:text-brand-blue transition-colors py-2">Industries</Link>
-            <Link href="/why-ucs" className="text-slate-200 hover:text-brand-blue transition-colors py-2">Why UCS</Link>
-            <Link href="/partner" className="text-slate-200 hover:text-brand-blue transition-colors py-2">Partner</Link>
-            <Link href="/careers" className="text-slate-200 hover:text-brand-blue transition-colors py-2">Careers</Link>
+            <Link href="/industries" className="text-slate-100 hover:text-amber-300 transition-colors py-2">Industries</Link>
+            <Link href="/why-ucs" className="text-slate-100 hover:text-amber-300 transition-colors py-2">Why UCS</Link>
+            <Link href="/partner" className="text-slate-100 hover:text-amber-300 transition-colors py-2">Partner</Link>
+            <Link href="/careers" className="text-slate-100 hover:text-amber-300 transition-colors py-2">Careers</Link>
           </div>
 
           <div className="hidden lg:flex items-center">
             <Link 
               href="/contact" 
-              className="px-6 py-2.5 rounded-full bg-gradient-to-r from-brand-blue to-brand-blue-light text-white font-bold text-sm shadow-md hover:shadow-lg hover:shadow-brand-blue/25 hover:scale-105 active:scale-95 transition-all duration-200"
+              className="px-6 py-2.5 rounded-full bg-gradient-to-r from-brand-blue via-blue-600 to-brand-blue-light text-white font-bold text-sm shadow-md shadow-blue-500/25 hover:shadow-lg hover:shadow-blue-500/40 hover:scale-105 active:scale-95 transition-all duration-200 border border-blue-400/30"
             >
               Contact Us
             </Link>
@@ -109,7 +113,7 @@ export default function Navbar() {
             <button 
               onClick={toggleMenu} 
               aria-label="Toggle Menu"
-              className="p-2 rounded-lg text-white hover:text-brand-blue hover:bg-slate-800/50 focus:outline-none transition-colors"
+              className="p-2 rounded-lg text-white hover:text-amber-300 hover:bg-white/10 focus:outline-none transition-colors"
             >
               {isOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
             </button>
@@ -136,7 +140,7 @@ export default function Navbar() {
               About
             </Link>
 
-            <div className="px-3 py-2 text-xs font-bold uppercase tracking-wider text-brand-blue border-t border-slate-800/80 pt-4 mt-2">
+            <div className="px-3 py-2 text-xs font-bold uppercase tracking-wider text-amber-400 border-t border-blue-900/40 pt-4 mt-2">
               Services
             </div>
             
@@ -144,55 +148,55 @@ export default function Navbar() {
               <Link 
                 href="/services/interpretation" 
                 onClick={() => setIsOpen(false)}
-                className="flex items-center px-3 py-2 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-slate-800/60 transition-colors"
+                className="flex items-center px-3 py-2 rounded-lg text-sm text-slate-200 hover:text-amber-300 hover:bg-white/10 transition-colors"
               >
-                <MessageSquare className="w-4 h-4 text-brand-blue mr-3 flex-shrink-0" />
+                <MessageSquare className="w-4 h-4 text-sky-400 mr-3 flex-shrink-0" />
                 <span>Interpretation</span>
               </Link>
               <Link 
                 href="/services/translation" 
                 onClick={() => setIsOpen(false)}
-                className="flex items-center px-3 py-2 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-slate-800/60 transition-colors"
+                className="flex items-center px-3 py-2 rounded-lg text-sm text-slate-200 hover:text-amber-300 hover:bg-white/10 transition-colors"
               >
-                <Globe2 className="w-4 h-4 text-brand-blue mr-3 flex-shrink-0" />
+                <Globe2 className="w-4 h-4 text-sky-400 mr-3 flex-shrink-0" />
                 <span>Translation & Localization</span>
               </Link>
               <Link 
                 href="/services/bpo" 
                 onClick={() => setIsOpen(false)}
-                className="flex items-center px-3 py-2 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-slate-800/60 transition-colors"
+                className="flex items-center px-3 py-2 rounded-lg text-sm text-slate-200 hover:text-amber-300 hover:bg-white/10 transition-colors"
               >
-                <HeadphonesIcon className="w-4 h-4 text-brand-blue mr-3 flex-shrink-0" />
+                <HeadphonesIcon className="w-4 h-4 text-sky-400 mr-3 flex-shrink-0" />
                 <span>BPO Solutions</span>
               </Link>
             </div>
 
-            <div className="border-t border-slate-800/80 my-2 pt-2 space-y-1">
+            <div className="border-t border-blue-900/40 my-2 pt-2 space-y-1">
               <Link 
                 href="/industries" 
                 onClick={() => setIsOpen(false)}
-                className="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:text-white hover:bg-slate-800/60 transition-colors"
+                className="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:text-amber-300 hover:bg-white/10 transition-colors"
               >
                 Industries
               </Link>
               <Link 
                 href="/why-ucs" 
                 onClick={() => setIsOpen(false)}
-                className="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:text-white hover:bg-slate-800/60 transition-colors"
+                className="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:text-amber-300 hover:bg-white/10 transition-colors"
               >
                 Why UCS
               </Link>
               <Link 
                 href="/partner" 
                 onClick={() => setIsOpen(false)}
-                className="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:text-white hover:bg-slate-800/60 transition-colors"
+                className="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:text-amber-300 hover:bg-white/10 transition-colors"
               >
                 Partner
               </Link>
               <Link 
                 href="/careers" 
                 onClick={() => setIsOpen(false)}
-                className="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:text-white hover:bg-slate-800/60 transition-colors"
+                className="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:text-amber-300 hover:bg-white/10 transition-colors"
               >
                 Careers
               </Link>
@@ -202,9 +206,9 @@ export default function Navbar() {
               <Link 
                 href="/contact" 
                 onClick={() => setIsOpen(false)}
-                className="flex justify-center items-center w-full py-3 px-4 rounded-xl bg-gradient-to-r from-brand-blue to-brand-blue-light text-white font-bold text-base shadow-lg active:scale-95 transition-transform"
+                className="flex justify-center items-center w-full py-3 px-4 rounded-xl bg-gradient-to-r from-brand-blue via-blue-600 to-brand-blue-light text-white font-bold text-base shadow-lg shadow-blue-500/25 active:scale-95 transition-transform border border-blue-400/30"
               >
-                <Sparkles className="w-4 h-4 mr-2" />
+                <Sparkles className="w-4 h-4 mr-2 text-amber-300" />
                 Contact Us
               </Link>
             </div>

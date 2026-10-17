@@ -20,23 +20,23 @@ export default function BpoSolutions() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="bg-brand-navy text-white py-24 md:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-        <div className="absolute top-0 right-1/4 -translate-y-1/3 translate-x-1/3 w-96 h-96 bg-brand-gold/15 rounded-full blur-3xl pointer-events-none"></div>
-        <div className="absolute bottom-0 left-1/4 translate-y-1/3 -translate-x-1/3 w-96 h-96 bg-brand-blue/10 rounded-full blur-3xl pointer-events-none"></div>
-        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#f59e0b_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
+      <section className="bg-gradient-to-br from-[#0B2545] via-[#0E356A] to-[#1B4F8F] text-white py-24 md:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div className="absolute top-0 right-1/4 -translate-y-1/3 translate-x-1/3 w-[500px] h-[500px] bg-blue-500/25 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute bottom-0 left-10 w-80 h-80 bg-amber-400/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#38BDF8_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
 
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-brand-gold text-xs font-bold tracking-wider uppercase mb-6">
-            <Sparkles className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-sky-200 text-xs font-bold tracking-wider uppercase mb-6 backdrop-blur-sm">
+            <Sparkles className="w-3.5 h-3.5 text-amber-300" />
             <span>Our Services</span>
           </div>
           <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 mb-6">
-            <div className="w-16 h-16 rounded-2xl bg-brand-gold/20 border border-brand-gold/30 flex items-center justify-center text-brand-gold flex-shrink-0">
+            <div className="w-16 h-16 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-amber-300 flex-shrink-0 shadow-lg backdrop-blur-sm">
               <ServerCog className="w-8 h-8" />
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight">BPO Solutions</h1>
           </div>
-          <p className="text-lg sm:text-2xl text-slate-300 max-w-3xl font-light leading-relaxed">
+          <p className="text-lg sm:text-2xl text-blue-100/90 max-w-3xl font-light leading-relaxed">
             Remote business support specialists designed to help organizations streamline workflows and elevate customer engagement.
           </p>
         </div>

@@ -17,38 +17,38 @@ export default async function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="bg-brand-navy text-white py-24 lg:py-36 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      <section className="bg-gradient-to-br from-[#0B2545] via-[#0E356A] to-[#1B4F8F] text-white py-24 lg:py-36 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         {/* Animated ambient lighting glows */}
-        <div className="absolute top-0 right-1/4 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-brand-blue/20 rounded-full blur-3xl pointer-events-none"></div>
-        <div className="absolute bottom-0 left-1/3 translate-y-1/3 w-96 h-96 bg-brand-gold/15 rounded-full blur-3xl pointer-events-none"></div>
-        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#1B4F8F_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
+        <div className="absolute top-0 right-1/4 -translate-y-1/2 translate-x-1/2 w-[500px] h-[500px] bg-blue-500/25 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute bottom-0 left-1/4 translate-y-1/3 w-[450px] h-[450px] bg-amber-400/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#38BDF8_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
 
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-800/80 border border-slate-700/80 text-brand-blue text-sm font-semibold mb-8 backdrop-blur-md shadow-sm">
-              <Sparkles className="w-4 h-4 animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-sky-200 text-sm font-semibold mb-8 backdrop-blur-md shadow-lg shadow-blue-950/20">
+              <Sparkles className="w-4 h-4 text-amber-300 animate-pulse" />
               <span>Next-Generation Language & Business Solutions</span>
             </div>
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight mb-6 leading-none">
               Breaking Language Barriers.<br/>
-              <span className="bg-gradient-to-r from-brand-blue via-brand-blue-light to-brand-blue-light bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-sky-300 via-blue-200 to-amber-300 bg-clip-text text-transparent">
                 Powering Business Success.
               </span>
             </h1>
-            <p className="text-lg sm:text-xl text-slate-300 mb-10 leading-relaxed max-w-2xl font-normal">
+            <p className="text-lg sm:text-xl text-blue-100/90 mb-10 leading-relaxed max-w-2xl font-light">
               Universe Center Services (UCS) provides professional language solutions and business support services designed to help organizations communicate effectively, improve customer experiences, and operate more efficiently.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 sm:items-center">
               <Link 
                 href="/services/interpretation" 
-                className="inline-flex justify-center items-center px-8 py-4 rounded-xl bg-gradient-to-r from-brand-blue to-brand-blue-light text-white font-black text-lg shadow-xl shadow-brand-blue/20 hover:scale-105 active:scale-95 transition-all duration-200"
+                className="inline-flex justify-center items-center px-8 py-4 rounded-xl bg-gradient-to-r from-brand-blue via-blue-600 to-brand-blue-light text-white font-black text-lg shadow-xl shadow-blue-950/50 hover:shadow-blue-500/30 hover:scale-105 active:scale-95 transition-all duration-200 border border-blue-400/30"
               >
                 Explore Services
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
               <Link 
                 href="/contact" 
-                className="inline-flex justify-center items-center px-8 py-4 rounded-xl border border-slate-600 bg-slate-900/50 hover:bg-slate-800/80 text-white font-bold text-lg hover:border-brand-blue transition-all duration-200"
+                className="inline-flex justify-center items-center px-8 py-4 rounded-xl border border-white/20 bg-white/10 hover:bg-white/20 text-white font-bold text-lg backdrop-blur-sm transition-all duration-200"
               >
                 Contact Us
               </Link>
@@ -271,24 +271,25 @@ export default async function Home() {
       </section>
 
       {/* Premium CTA Section */}
-      <section className="bg-gradient-to-br from-brand-navy via-slate-900 to-[#0B2545] text-white py-24 px-4 sm:px-6 lg:px-8 text-center relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-blue/15 rounded-full blur-3xl pointer-events-none"></div>
+      <section className="bg-gradient-to-br from-[#0B2545] via-[#0E356A] to-[#1B4F8F] text-white py-24 px-4 sm:px-6 lg:px-8 text-center relative overflow-hidden border-t border-blue-900/40">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-amber-400/15 rounded-full blur-3xl pointer-events-none"></div>
         <div className="max-w-4xl mx-auto relative z-10">
           <h2 className="text-3xl sm:text-5xl font-black mb-6 tracking-tight">Ready to break communication barriers?</h2>
-          <p className="text-lg sm:text-xl text-slate-300 mb-10 max-w-2xl mx-auto font-normal leading-relaxed">
+          <p className="text-lg sm:text-xl text-blue-100/90 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
             Partner with Universe Center Services today to build tailored solutions that connect people and businesses across languages and borders.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
               href="/contact" 
-              className="inline-flex justify-center items-center px-9 py-4 rounded-xl bg-gradient-to-r from-brand-blue to-brand-blue-light text-white font-black text-lg shadow-xl hover:scale-105 active:scale-95 transition-all duration-200"
+              className="inline-flex justify-center items-center px-9 py-4 rounded-xl bg-gradient-to-r from-brand-blue via-blue-600 to-brand-blue-light text-white font-black text-lg shadow-xl shadow-blue-950/50 hover:shadow-blue-500/30 hover:scale-105 active:scale-95 transition-all duration-200 border border-blue-400/30"
             >
               Get Started Now
               <ArrowRight className="w-5 h-5 ml-2" />
             </Link>
             <Link 
               href="/partner" 
-              className="inline-flex justify-center items-center px-9 py-4 rounded-xl border border-slate-700 bg-slate-800/60 hover:bg-slate-800 text-white font-bold text-lg transition-colors"
+              className="inline-flex justify-center items-center px-9 py-4 rounded-xl border border-white/20 bg-white/10 hover:bg-white/20 text-white font-bold text-lg backdrop-blur-sm transition-colors"
             >
               Partner With Us
             </Link>

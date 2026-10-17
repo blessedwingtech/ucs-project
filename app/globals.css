@@ -3,19 +3,25 @@
 :root {
   --background: #ffffff;
   --foreground: #0f172a;
-  --brand-navy: #0A192F;
+  --brand-navy: #0B2545;
+  --brand-sapphire: #0E356A;
   --brand-blue: #1B4F8F;
-  --brand-blue-light: #2E75B6;
+  --brand-blue-light: #2563EB;
+  --brand-cyan: #38BDF8;
   --brand-gold: #D4A843;
+  --brand-gold-light: #F59E0B;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-brand-navy: var(--brand-navy);
+  --color-brand-sapphire: var(--brand-sapphire);
   --color-brand-blue: var(--brand-blue);
   --color-brand-blue-light: var(--brand-blue-light);
+  --color-brand-cyan: var(--brand-cyan);
   --color-brand-gold: var(--brand-gold);
+  --color-brand-gold-light: var(--brand-gold-light);
   
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
@@ -39,9 +45,10 @@ html {
 
 @layer utilities {
   .glass-header {
-    background: rgba(10, 25, 47, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(11, 37, 69, 0.90);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 }
 

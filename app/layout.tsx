@@ -16,10 +16,21 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | Universe Center Services',
-    default: 'Universe Center Services (UCS) | Language & Business Solutions',
+    template: '%s | Universe Center Services (UCS)',
+    default: 'Universe Center Services (UCS)',
   },
   description: "Universe Center Services (UCS) provides professional language solutions and business support services designed to help organizations communicate effectively.",
+  icons: {
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/icon.png', sizes: '512x512', type: 'image/png' },
+      { url: '/favicon.ico', sizes: '32x32' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: [
+      { url: '/apple-icon.png', sizes: '512x512', type: 'image/png' },
+    ],
+  },
 };
 
 export default function RootLayout({
