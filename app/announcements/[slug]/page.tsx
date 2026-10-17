@@ -62,7 +62,7 @@ export default async function AnnouncementDetail({ params }: { params: Promise<{
       
       <div className={`max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 ${post.coverImageUrl ? '-mt-24 relative z-10' : 'pt-16'}`}>
         <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-8 md:p-12 mb-16">
-          <Link href="/announcements" className="inline-flex items-center text-brand-teal hover:text-teal-600 mb-8 font-medium">
+          <Link href="/announcements" className="inline-flex items-center text-brand-blue hover:text-blue-700 mb-8 font-medium">
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Announcements
           </Link>
@@ -81,7 +81,7 @@ export default async function AnnouncementDetail({ params }: { params: Promise<{
             {post.title}
           </h1>
           
-          <div className="prose prose-slate prose-lg max-w-none prose-headings:text-brand-navy prose-a:text-brand-teal">
+          <div className="prose prose-slate prose-lg max-w-none prose-headings:text-brand-navy prose-p:text-slate-700 prose-a:text-brand-blue">
             {/* simple markdown renderer, in a real app might use react-markdown */}
             {post.content.split('\n').map((paragraph, idx) => (
               paragraph.trim() === '' ? <br key={idx} /> : <p key={idx}>{paragraph}</p>

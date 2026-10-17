@@ -37,9 +37,9 @@ export default function Industries() {
       name: "Corporate",
       icon: Building2,
       description: "Business process outsourcing, corporate translations, and international meeting interpretation.",
-      color: "from-brand-teal to-emerald-500",
-      bg: "bg-teal-50",
-      text: "text-brand-teal"
+      color: "from-brand-blue to-brand-blue-light",
+      bg: "bg-blue-50",
+      text: "text-brand-blue"
     },
     {
       name: "Government",
@@ -63,11 +63,11 @@ export default function Industries() {
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
       <section className="bg-brand-navy text-white py-24 md:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-        <div className="absolute top-0 left-1/4 -translate-y-1/3 -translate-x-1/3 w-96 h-96 bg-brand-teal/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute top-0 left-1/4 -translate-y-1/3 -translate-x-1/3 w-96 h-96 bg-brand-blue/15 rounded-full blur-3xl pointer-events-none"></div>
         <div className="absolute bottom-0 right-1/4 translate-y-1/3 translate-x-1/3 w-96 h-96 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none"></div>
         
         <div className="max-w-7xl mx-auto relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-brand-teal text-xs font-bold tracking-wider uppercase mb-6 mx-auto">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-brand-blue text-xs font-bold tracking-wider uppercase mb-6 mx-auto">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Specialized Sectors</span>
           </div>
@@ -98,14 +98,14 @@ export default function Industries() {
           </div>
 
           <div className="mt-20 p-10 sm:p-16 rounded-3xl bg-gradient-to-br from-brand-navy to-[#0B2545] text-center border border-slate-800 relative overflow-hidden shadow-2xl">
-            <div className="absolute -left-20 -bottom-20 w-64 h-64 bg-brand-teal/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div className="absolute -left-20 -bottom-20 w-64 h-64 bg-brand-blue/20 rounded-full blur-3xl pointer-events-none"></div>
             <h2 className="text-3xl font-black text-white mb-6 relative z-10">Don&apos;t see your industry listed?</h2>
             <p className="text-lg text-slate-300 mb-10 max-w-2xl mx-auto relative z-10">
               We provide tailored solutions for specialized sectors. Contact us to discuss how we can meet your specific organizational needs.
             </p>
             <Link 
               href="/contact" 
-              className="inline-flex justify-center items-center px-8 py-4 rounded-xl bg-brand-teal text-brand-navy font-bold shadow-xl hover:bg-teal-400 active:scale-95 transition-all duration-200 relative z-10"
+              className="inline-flex justify-center items-center px-8 py-4 rounded-xl bg-brand-blue text-white font-bold shadow-xl hover:bg-brand-blue-light active:scale-95 transition-all duration-200 relative z-10"
             >
                Get in touch
                <ArrowRight className="w-5 h-5 ml-2" />

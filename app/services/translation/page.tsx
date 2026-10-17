@@ -23,17 +23,17 @@ export default function Translation() {
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
       <section className="bg-brand-navy text-white py-24 md:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-        <div className="absolute top-0 right-1/4 -translate-y-1/3 translate-x-1/3 w-96 h-96 bg-brand-teal/15 rounded-full blur-3xl pointer-events-none"></div>
-        <div className="absolute bottom-0 left-1/4 translate-y-1/3 -translate-x-1/3 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
-        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#14b8a6_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
+        <div className="absolute top-0 right-1/4 -translate-y-1/3 translate-x-1/3 w-96 h-96 bg-brand-blue/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute bottom-0 left-1/4 translate-y-1/3 -translate-x-1/3 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#1B4F8F_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
 
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-brand-teal text-xs font-bold tracking-wider uppercase mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-brand-blue text-xs font-bold tracking-wider uppercase mb-6">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Our Services</span>
           </div>
           <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 mb-6">
-            <div className="w-16 h-16 rounded-2xl bg-brand-teal/20 border border-brand-teal/30 flex items-center justify-center text-brand-teal flex-shrink-0">
+            <div className="w-16 h-16 rounded-2xl bg-brand-blue/20 border border-brand-blue/30 flex items-center justify-center text-brand-blue flex-shrink-0">
               <Globe2 className="w-8 h-8" />
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight">Translation & Localization</h1>
@@ -50,7 +50,7 @@ export default function Translation() {
           <div className="grid lg:grid-cols-12 gap-16 items-start">
             <div className="lg:col-span-5 space-y-8">
               <div>
-                <h2 className="text-xs font-black uppercase tracking-widest text-brand-teal mb-3">Our Expertise</h2>
+                <h2 className="text-xs font-black uppercase tracking-widest text-brand-blue mb-3">Our Expertise</h2>
                 <h3 className="text-3xl sm:text-4xl font-black text-brand-navy tracking-tight leading-tight mb-6">
                   Precision in Every Word
                 </h3>
@@ -69,7 +69,7 @@ export default function Translation() {
                     "Strict confidentiality (HIPAA compliant)",
                   ].map((item, i) => (
                     <li key={i} className="flex items-start">
-                      <div className="w-6 h-6 rounded-full bg-teal-50 flex items-center justify-center text-brand-teal mr-3 flex-shrink-0 mt-0.5">
+                      <div className="w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center text-brand-blue mr-3 flex-shrink-0 mt-0.5">
                         <Sparkles className="w-3 h-3" />
                       </div>
                       <span className="text-slate-700 font-medium">{item}</span>
@@ -85,8 +85,8 @@ export default function Translation() {
                 {documentTypes.map((doc, idx) => {
                   const Icon = doc.icon;
                   return (
-                    <div key={idx} className="group flex items-center p-5 bg-white rounded-2xl border border-slate-100/80 shadow-sm hover:shadow-xl hover:border-brand-teal/40 hover:-translate-y-1 transition-all duration-300">
-                      <div className="w-12 h-12 rounded-xl bg-teal-50 flex items-center justify-center text-brand-teal mr-4 group-hover:bg-brand-teal group-hover:text-brand-navy transition-colors flex-shrink-0">
+                    <div key={idx} className="group flex items-center p-5 bg-white rounded-2xl border border-slate-100/80 shadow-sm hover:shadow-xl hover:border-brand-blue/40 hover:-translate-y-1 transition-all duration-300">
+                      <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-brand-blue mr-4 group-hover:bg-brand-blue group-hover:text-white transition-colors flex-shrink-0">
                         <Icon className="w-6 h-6" />
                       </div>
                       <h4 className="font-bold text-slate-800 text-sm">{doc.name}</h4>
@@ -96,14 +96,14 @@ export default function Translation() {
               </div>
               
               <div className="mt-12 p-8 rounded-3xl bg-brand-navy text-white relative overflow-hidden">
-                <div className="absolute -right-10 -top-10 w-40 h-40 bg-brand-teal/20 rounded-full blur-2xl pointer-events-none"></div>
+                <div className="absolute -right-10 -top-10 w-40 h-40 bg-brand-blue/20 rounded-full blur-2xl pointer-events-none"></div>
                 <h4 className="text-xl font-bold mb-4 relative z-10">Need a Quote?</h4>
                 <p className="text-slate-300 mb-6 relative z-10">
                   Send us your document details, word count, and target languages, and we will provide a comprehensive estimate.
                 </p>
                 <Link 
                   href="/contact" 
-                  className="inline-flex justify-center items-center px-6 py-3 rounded-xl bg-brand-teal text-brand-navy font-bold shadow-lg hover:bg-teal-400 active:scale-95 transition-all duration-200 relative z-10"
+                  className="inline-flex justify-center items-center px-6 py-3 rounded-xl bg-brand-blue text-white font-bold shadow-lg hover:bg-brand-blue-light active:scale-95 transition-all duration-200 relative z-10"
                 >
                   Request Translation Quote
                   <ArrowRight className="w-4 h-4 ml-2" />

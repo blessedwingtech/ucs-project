@@ -34,11 +34,11 @@ export default function WhyUCS() {
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
       <section className="bg-brand-navy text-white py-24 md:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-        <div className="absolute top-0 right-1/4 -translate-y-1/3 translate-x-1/3 w-96 h-96 bg-brand-teal/15 rounded-full blur-3xl pointer-events-none"></div>
-        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#14b8a6_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
+        <div className="absolute top-0 right-1/4 -translate-y-1/3 translate-x-1/3 w-96 h-96 bg-brand-blue/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#1B4F8F_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
         
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-brand-teal text-xs font-bold tracking-wider uppercase mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-brand-blue text-xs font-bold tracking-wider uppercase mb-6">
             <Sparkles className="w-3.5 h-3.5" />
             <span>The UCS Advantage</span>
           </div>
@@ -66,9 +66,9 @@ export default function WhyUCS() {
                 {reasons.map((reason, idx) => {
                   const Icon = reason.icon;
                   return (
-                    <div key={idx} className="group flex bg-white p-6 rounded-2xl border border-slate-100/80 shadow-sm hover:shadow-xl hover:border-brand-teal/40 transition-all duration-300">
+                    <div key={idx} className="group flex bg-white p-6 rounded-2xl border border-slate-100/80 shadow-sm hover:shadow-xl hover:border-brand-blue/40 transition-all duration-300">
                       <div className="mr-5 mt-1">
-                        <div className="w-12 h-12 rounded-xl bg-teal-50 flex items-center justify-center text-brand-teal group-hover:scale-110 group-hover:bg-brand-teal group-hover:text-brand-navy transition-all duration-300">
+                        <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-brand-blue group-hover:scale-110 group-hover:bg-brand-blue group-hover:text-white transition-all duration-300">
                           <Icon className="w-6 h-6" />
                         </div>
                       </div>
@@ -83,7 +83,7 @@ export default function WhyUCS() {
             </div>
             
             <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-tr from-brand-teal/20 to-brand-gold/20 blur-2xl rounded-3xl z-0"></div>
+              <div className="absolute -inset-4 bg-gradient-to-tr from-brand-blue/20 to-brand-gold/20 blur-2xl rounded-3xl z-0"></div>
               <div className="relative z-10 bg-gradient-to-br from-brand-navy to-slate-900 p-10 sm:p-14 rounded-3xl shadow-2xl border border-slate-800 text-white">
                 <Star className="w-12 h-12 text-brand-gold mb-8" />
                 <h3 className="text-3xl font-black mb-6">Our Commitment</h3>
@@ -98,7 +98,7 @@ export default function WhyUCS() {
                     "Continuous process improvement"
                   ].map((item, i) => (
                     <li key={i} className="flex items-center">
-                      <CheckCircle2 className="w-6 h-6 text-brand-teal mr-4 flex-shrink-0" />
+                      <CheckCircle2 className="w-6 h-6 text-brand-blue mr-4 flex-shrink-0" />
                       <span className="font-semibold text-lg">{item}</span>
                     </li>
                   ))}

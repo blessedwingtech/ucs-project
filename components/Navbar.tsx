@@ -16,28 +16,25 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-20">
           {/* Brand Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="group flex items-center gap-2 text-2xl font-black tracking-tight text-white hover:text-brand-teal transition-colors">
-              <span className="w-9 h-9 rounded-lg bg-gradient-to-tr from-brand-teal to-emerald-400 flex items-center justify-center text-brand-navy font-black text-lg shadow-md group-hover:scale-105 transition-transform">
-                U
-              </span>
-              <span>UCS</span>
+            <Link href="/" className="group flex items-center gap-3">
+              <img src="/logo-ucs.jpg" alt="Universe Center Services" className="h-12 w-auto" />
             </Link>
           </div>
           
           {/* Desktop Navigation Links */}
           <div className="hidden lg:flex space-x-8 items-center text-sm font-semibold">
-            <Link href="/" className="text-slate-200 hover:text-brand-teal transition-colors py-2">Home</Link>
-            <Link href="/about" className="text-slate-200 hover:text-brand-teal transition-colors py-2">About</Link>
+            <Link href="/" className="text-slate-200 hover:text-brand-blue transition-colors py-2">Home</Link>
+            <Link href="/about" className="text-slate-200 hover:text-brand-blue transition-colors py-2">About</Link>
             
             {/* Services Dropdown */}
             <div className="relative group">
               <button 
-                className="flex items-center text-slate-200 hover:text-brand-teal transition-colors py-2 focus:outline-none"
+                className="flex items-center text-slate-200 hover:text-brand-blue transition-colors py-2 focus:outline-none"
                 onMouseEnter={() => setServicesOpen(true)}
                 onClick={() => setServicesOpen(!servicesOpen)}
               >
                 <span>Services</span>
-                <ChevronDown className="ml-1 h-4 w-4 text-slate-400 group-hover:text-brand-teal transition-transform duration-200 group-hover:rotate-180" />
+                <ChevronDown className="ml-1 h-4 w-4 text-slate-400 group-hover:text-brand-blue transition-transform duration-200 group-hover:rotate-180" />
               </button>
               
               <div 
@@ -52,7 +49,7 @@ export default function Navbar() {
                     onClick={() => setServicesOpen(false)}
                     className="flex items-center px-3 py-2.5 rounded-lg text-sm text-slate-700 hover:bg-slate-50 hover:text-brand-navy transition-colors group/item"
                   >
-                    <div className="w-8 h-8 rounded-lg bg-teal-50 flex items-center justify-center text-brand-teal mr-3 group-hover/item:bg-brand-teal group-hover/item:text-brand-navy transition-colors">
+                    <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-brand-blue mr-3 group-hover/item:bg-brand-blue group-hover/item:text-white transition-colors">
                       <MessageSquare className="w-4 h-4" />
                     </div>
                     <div>
@@ -66,7 +63,7 @@ export default function Navbar() {
                     onClick={() => setServicesOpen(false)}
                     className="flex items-center px-3 py-2.5 rounded-lg text-sm text-slate-700 hover:bg-slate-50 hover:text-brand-navy transition-colors group/item"
                   >
-                    <div className="w-8 h-8 rounded-lg bg-teal-50 flex items-center justify-center text-brand-teal mr-3 group-hover/item:bg-brand-teal group-hover/item:text-brand-navy transition-colors">
+                    <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-brand-blue mr-3 group-hover/item:bg-brand-blue group-hover/item:text-white transition-colors">
                       <Globe2 className="w-4 h-4" />
                     </div>
                     <div>
@@ -80,7 +77,7 @@ export default function Navbar() {
                     onClick={() => setServicesOpen(false)}
                     className="flex items-center px-3 py-2.5 rounded-lg text-sm text-slate-700 hover:bg-slate-50 hover:text-brand-navy transition-colors group/item"
                   >
-                    <div className="w-8 h-8 rounded-lg bg-teal-50 flex items-center justify-center text-brand-teal mr-3 group-hover/item:bg-brand-teal group-hover/item:text-brand-navy transition-colors">
+                    <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-brand-blue mr-3 group-hover/item:bg-brand-blue group-hover/item:text-white transition-colors">
                       <HeadphonesIcon className="w-4 h-4" />
                     </div>
                     <div>
@@ -92,16 +89,16 @@ export default function Navbar() {
               </div>
             </div>
 
-            <Link href="/industries" className="text-slate-200 hover:text-brand-teal transition-colors py-2">Industries</Link>
-            <Link href="/why-ucs" className="text-slate-200 hover:text-brand-teal transition-colors py-2">Why UCS</Link>
-            <Link href="/partner" className="text-slate-200 hover:text-brand-teal transition-colors py-2">Partner</Link>
-            <Link href="/careers" className="text-slate-200 hover:text-brand-teal transition-colors py-2">Careers</Link>
+            <Link href="/industries" className="text-slate-200 hover:text-brand-blue transition-colors py-2">Industries</Link>
+            <Link href="/why-ucs" className="text-slate-200 hover:text-brand-blue transition-colors py-2">Why UCS</Link>
+            <Link href="/partner" className="text-slate-200 hover:text-brand-blue transition-colors py-2">Partner</Link>
+            <Link href="/careers" className="text-slate-200 hover:text-brand-blue transition-colors py-2">Careers</Link>
           </div>
 
           <div className="hidden lg:flex items-center">
             <Link 
               href="/contact" 
-              className="px-6 py-2.5 rounded-full bg-gradient-to-r from-brand-teal to-teal-400 text-brand-navy font-bold text-sm shadow-md hover:shadow-lg hover:shadow-brand-teal/25 hover:scale-105 active:scale-95 transition-all duration-200"
+              className="px-6 py-2.5 rounded-full bg-gradient-to-r from-brand-blue to-brand-blue-light text-white font-bold text-sm shadow-md hover:shadow-lg hover:shadow-brand-blue/25 hover:scale-105 active:scale-95 transition-all duration-200"
             >
               Contact Us
             </Link>
@@ -112,7 +109,7 @@ export default function Navbar() {
             <button 
               onClick={toggleMenu} 
               aria-label="Toggle Menu"
-              className="p-2 rounded-lg text-white hover:text-brand-teal hover:bg-slate-800/50 focus:outline-none transition-colors"
+              className="p-2 rounded-lg text-white hover:text-brand-blue hover:bg-slate-800/50 focus:outline-none transition-colors"
             >
               {isOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
             </button>
@@ -139,7 +136,7 @@ export default function Navbar() {
               About
             </Link>
 
-            <div className="px-3 py-2 text-xs font-bold uppercase tracking-wider text-brand-teal border-t border-slate-800/80 pt-4 mt-2">
+            <div className="px-3 py-2 text-xs font-bold uppercase tracking-wider text-brand-blue border-t border-slate-800/80 pt-4 mt-2">
               Services
             </div>
             
@@ -149,7 +146,7 @@ export default function Navbar() {
                 onClick={() => setIsOpen(false)}
                 className="flex items-center px-3 py-2 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-slate-800/60 transition-colors"
               >
-                <MessageSquare className="w-4 h-4 text-brand-teal mr-3 flex-shrink-0" />
+                <MessageSquare className="w-4 h-4 text-brand-blue mr-3 flex-shrink-0" />
                 <span>Interpretation</span>
               </Link>
               <Link 
@@ -157,7 +154,7 @@ export default function Navbar() {
                 onClick={() => setIsOpen(false)}
                 className="flex items-center px-3 py-2 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-slate-800/60 transition-colors"
               >
-                <Globe2 className="w-4 h-4 text-brand-teal mr-3 flex-shrink-0" />
+                <Globe2 className="w-4 h-4 text-brand-blue mr-3 flex-shrink-0" />
                 <span>Translation & Localization</span>
               </Link>
               <Link 
@@ -165,7 +162,7 @@ export default function Navbar() {
                 onClick={() => setIsOpen(false)}
                 className="flex items-center px-3 py-2 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-slate-800/60 transition-colors"
               >
-                <HeadphonesIcon className="w-4 h-4 text-brand-teal mr-3 flex-shrink-0" />
+                <HeadphonesIcon className="w-4 h-4 text-brand-blue mr-3 flex-shrink-0" />
                 <span>BPO Solutions</span>
               </Link>
             </div>
@@ -205,7 +202,7 @@ export default function Navbar() {
               <Link 
                 href="/contact" 
                 onClick={() => setIsOpen(false)}
-                className="flex justify-center items-center w-full py-3 px-4 rounded-xl bg-gradient-to-r from-brand-teal to-teal-400 text-brand-navy font-bold text-base shadow-lg active:scale-95 transition-transform"
+                className="flex justify-center items-center w-full py-3 px-4 rounded-xl bg-gradient-to-r from-brand-blue to-brand-blue-light text-white font-bold text-base shadow-lg active:scale-95 transition-transform"
               >
                 <Sparkles className="w-4 h-4 mr-2" />
                 Contact Us

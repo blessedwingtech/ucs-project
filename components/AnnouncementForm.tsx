@@ -73,7 +73,7 @@ export default function AnnouncementForm({
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 md:p-8 max-w-4xl mx-auto">
       <div className="mb-8 flex items-center justify-between">
-        <Link href="/admin/announcements" className="inline-flex items-center text-slate-500 hover:text-brand-teal transition-colors">
+        <Link href="/admin/announcements" className="inline-flex items-center text-slate-500 hover:text-brand-blue transition-colors">
           <ArrowLeft className="w-4 h-4 mr-2" />
           Back
         </Link>
@@ -97,7 +97,7 @@ export default function AnnouncementForm({
               required 
               value={title}
               onChange={handleTitleChange}
-              className="w-full px-4 py-2 rounded-md border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-teal"
+              className="w-full px-4 py-2 rounded-md border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-blue"
               placeholder="Post title"
             />
           </div>
@@ -108,7 +108,7 @@ export default function AnnouncementForm({
               required 
               value={slug}
               onChange={(e) => setSlug(e.target.value)}
-              className="w-full px-4 py-2 rounded-md border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-teal"
+              className="w-full px-4 py-2 rounded-md border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-blue"
               placeholder="post-slug-url"
             />
           </div>
@@ -120,7 +120,7 @@ export default function AnnouncementForm({
             type="url" 
             value={coverImageUrl}
             onChange={(e) => setCoverImageUrl(e.target.value)}
-            className="w-full px-4 py-2 rounded-md border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-teal"
+            className="w-full px-4 py-2 rounded-md border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-blue"
             placeholder="https://example.com/image.jpg"
           />
         </div>
@@ -131,7 +131,7 @@ export default function AnnouncementForm({
             rows={2}
             value={excerpt}
             onChange={(e) => setExcerpt(e.target.value)}
-            className="w-full px-4 py-2 rounded-md border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-teal"
+            className="w-full px-4 py-2 rounded-md border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-blue"
             placeholder="Brief summary for the list view..."
           />
         </div>
@@ -143,7 +143,7 @@ export default function AnnouncementForm({
             rows={12}
             value={content}
             onChange={(e) => setContent(e.target.value)}
-            className="w-full px-4 py-2 rounded-md border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-teal font-mono text-sm"
+            className="w-full px-4 py-2 rounded-md border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-blue font-mono text-sm"
             placeholder="Write your announcement content here..."
           />
         </div>
@@ -154,7 +154,7 @@ export default function AnnouncementForm({
             type="checkbox"
             checked={published}
             onChange={(e) => setPublished(e.target.checked)}
-            className="h-4 w-4 text-brand-teal focus:ring-brand-teal border-slate-300 rounded"
+            className="h-4 w-4 text-brand-blue focus:ring-brand-blue border-slate-300 rounded"
           />
           <label htmlFor="published" className="ml-2 block text-sm text-slate-700">
             Publish immediately (will be visible to public)

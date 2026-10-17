@@ -22,7 +22,7 @@ export default function BpoSolutions() {
       {/* Hero Section */}
       <section className="bg-brand-navy text-white py-24 md:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         <div className="absolute top-0 right-1/4 -translate-y-1/3 translate-x-1/3 w-96 h-96 bg-brand-gold/15 rounded-full blur-3xl pointer-events-none"></div>
-        <div className="absolute bottom-0 left-1/4 translate-y-1/3 -translate-x-1/3 w-96 h-96 bg-brand-teal/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute bottom-0 left-1/4 translate-y-1/3 -translate-x-1/3 w-96 h-96 bg-brand-blue/10 rounded-full blur-3xl pointer-events-none"></div>
         <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#f59e0b_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
 
         <div className="max-w-7xl mx-auto relative z-10">
@@ -46,7 +46,7 @@ export default function BpoSolutions() {
       <section className="py-24 bg-slate-50/50 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-xs font-black uppercase tracking-widest text-brand-teal mb-3">Workflow Optimization</h2>
+            <h2 className="text-xs font-black uppercase tracking-widest text-brand-blue mb-3">Workflow Optimization</h2>
             <h3 className="text-3xl sm:text-4xl font-black text-brand-navy tracking-tight mb-6">Scale Your Operations Efficiently</h3>
             <p className="text-lg text-slate-600 leading-relaxed">
               Business Process Outsourcing (BPO) allows your team to focus on core organizational goals while our trained remote specialists handle day-to-day operational tasks with professionalism and care.

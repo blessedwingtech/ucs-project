@@ -1,22 +1,106 @@
-import { Mail, Phone, MapPin, Send, Sparkles } from "lucide-react";
-import type { Metadata } from "next";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Contact Us | Universe Center Services",
-  description: "Get in touch with UCS for your language and business support needs.",
-};
+import { Mail, Phone, MapPin, Send, Sparkles, CheckCircle2 } from "lucide-react";
+import { useState } from "react";
 
-export default function Contact() {
+const CONTACT_REASONS = [
+  { value: "information", label: "Demande d'information" },
+  { value: "partnership", label: "Partenariat" },
+  { value: "quote", label: "Demande de devis" },
+  { value: "job", label: "Offre d'emploi / Recrutement" },
+  { value: "application", label: "Candidature spontanée" },
+  { value: "support", label: "Support technique" },
+  { value: "other", label: "Autre" },
+];
+
+const SERVICES = [
+  { value: "", label: "-- Sélectionnez un service (optionnel) --" },
+  { value: "interpretation", label: "Interpretation" },
+  { value: "translation", label: "Translation & Localization" },
+  { value: "bpo", label: "BPO Solutions" },
+];
+
+export default function ContactPage() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState("");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setError("");
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      phone: formData.get("phone") as string,
+      reason: formData.get("reason") as string,
+      service: formData.get("service") as string,
+      message: formData.get("message") as string,
+    };
+
+    try {
+      // 1. Save to our database
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to save to database");
+      }
+
+      // 2. Also send via Formspree for email notification
+      await fetch("https://formspree.io/f/mkovzvrb", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...data,
+          source: "UCS Website Contact Form",
+          _subject: `[UCS] ${CONTACT_REASONS.find(r => r.value === data.reason)?.label || data.reason} - ${data.name}`,
+        }),
+      });
+
+      setIsSubmitted(true);
+    } catch {
+      setError("Une erreur est survenue. Veuillez réessayer ou nous contacter directement par email.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
+
+  if (isSubmitted) {
+    return (
+      <div className="flex flex-col min-h-screen">
+        <section className="bg-brand-navy text-white py-24 md:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+          <div className="absolute top-0 right-1/4 -translate-y-1/3 translate-x-1/3 w-96 h-96 bg-brand-blue/15 rounded-full blur-3xl pointer-events-none"></div>
+          <div className="max-w-7xl mx-auto relative z-10 text-center">
+            <CheckCircle2 className="w-20 h-20 text-green-400 mx-auto mb-6" />
+            <h1 className="text-4xl sm:text-5xl font-black tracking-tight mb-6">Message envoyé !</h1>
+            <p className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
+              Merci pour votre message. Notre équipe vous répondra dans les 24 heures.
+            </p>
+            <a href="/" className="inline-flex items-center mt-8 px-8 py-4 rounded-xl bg-gradient-to-r from-brand-blue to-brand-blue-light text-white font-bold text-lg shadow-xl hover:scale-105 active:scale-95 transition-all duration-200">
+              Retour à l&apos;accueil
+            </a>
+          </div>
+        </section>
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
       <section className="bg-brand-navy text-white py-24 md:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-        <div className="absolute top-0 right-1/4 -translate-y-1/3 translate-x-1/3 w-96 h-96 bg-brand-teal/15 rounded-full blur-3xl pointer-events-none"></div>
-        <div className="absolute bottom-0 left-1/4 translate-y-1/3 -translate-x-1/3 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
-        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#14b8a6_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
+        <div className="absolute top-0 right-1/4 -translate-y-1/3 translate-x-1/3 w-96 h-96 bg-brand-blue/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute bottom-0 left-1/4 translate-y-1/3 -translate-x-1/3 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#1B4F8F_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
 
         <div className="max-w-7xl mx-auto relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-brand-teal text-xs font-bold tracking-wider uppercase mb-6 mx-auto">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-brand-blue text-xs font-bold tracking-wider uppercase mb-6 mx-auto">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Get In Touch</span>
           </div>
@@ -41,32 +125,35 @@ export default function Contact() {
               </div>
               
               <div className="space-y-8">
-                <div className="group flex items-start p-6 bg-white rounded-2xl border border-slate-100/80 shadow-sm hover:shadow-xl hover:border-brand-teal/40 transition-all duration-300">
-                  <div className="w-12 h-12 rounded-xl bg-teal-50 flex items-center justify-center text-brand-teal mr-5 group-hover:scale-110 group-hover:bg-brand-teal group-hover:text-brand-navy transition-all duration-300 flex-shrink-0">
+                <div className="group flex items-start p-6 bg-white rounded-2xl border border-slate-100/80 shadow-sm hover:shadow-xl hover:border-brand-blue/40 transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-brand-blue mr-5 group-hover:scale-110 group-hover:bg-brand-blue group-hover:text-white transition-all duration-300 flex-shrink-0">
                     <Mail className="w-6 h-6" />
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-brand-navy mb-1">Email Us</h3>
                     <p className="text-slate-500 text-sm mb-2">For general inquiries and service requests:</p>
-                    <a href="mailto:info@universecenterservices.com" className="text-brand-teal font-semibold hover:underline">
-                      info@universecenterservices.com
+                    <a href="mailto:info@universecenterservices.com" className="text-brand-blue font-semibold hover:underline">
+                      hiring.ucs@gmail.com
+                    </a>
+                    <a href="mailto:info@universecenterservices.com" className="text-brand-blue font-semibold hover:underline">
+                      bentz@bittonik.com
                     </a>
                   </div>
                 </div>
 
-                <div className="group flex items-start p-6 bg-white rounded-2xl border border-slate-100/80 shadow-sm hover:shadow-xl hover:border-brand-teal/40 transition-all duration-300">
-                  <div className="w-12 h-12 rounded-xl bg-teal-50 flex items-center justify-center text-brand-teal mr-5 group-hover:scale-110 group-hover:bg-brand-teal group-hover:text-brand-navy transition-all duration-300 flex-shrink-0">
+                <div className="group flex items-start p-6 bg-white rounded-2xl border border-slate-100/80 shadow-sm hover:shadow-xl hover:border-brand-blue/40 transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-brand-blue mr-5 group-hover:scale-110 group-hover:bg-brand-blue group-hover:text-white transition-all duration-300 flex-shrink-0">
                     <Phone className="w-6 h-6" />
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-brand-navy mb-1">Call Us</h3>
                     <p className="text-slate-500 text-sm mb-2">Mon-Fri from 8am to 5pm (EST)</p>
-                    <p className="text-brand-teal font-semibold">Available upon request</p>
+                    <p className="text-brand-blue font-semibold">Available upon request</p>
                   </div>
                 </div>
 
-                <div className="group flex items-start p-6 bg-white rounded-2xl border border-slate-100/80 shadow-sm hover:shadow-xl hover:border-brand-teal/40 transition-all duration-300">
-                  <div className="w-12 h-12 rounded-xl bg-teal-50 flex items-center justify-center text-brand-teal mr-5 group-hover:scale-110 group-hover:bg-brand-teal group-hover:text-brand-navy transition-all duration-300 flex-shrink-0">
+                <div className="group flex items-start p-6 bg-white rounded-2xl border border-slate-100/80 shadow-sm hover:shadow-xl hover:border-brand-blue/40 transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-brand-blue mr-5 group-hover:scale-110 group-hover:bg-brand-blue group-hover:text-white transition-all duration-300 flex-shrink-0">
                     <MapPin className="w-6 h-6" />
                   </div>
                   <div>
@@ -80,35 +167,39 @@ export default function Contact() {
               </div>
             </div>
             
-            {/* Formspree Contact Form */}
+            {/* Contact Form */}
             <div className="bg-white p-8 sm:p-12 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-brand-teal to-emerald-400"></div>
+              <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-brand-blue to-brand-blue-light"></div>
               <h3 className="text-2xl font-black text-brand-navy mb-8">Send us a Message</h3>
               
-              <form action="https://formspree.io/f/mkovzvrb" method="POST" className="space-y-6">
-                <input type="hidden" name="source" value="UCS Website Contact Form" />
-                
+              {error && (
+                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm">
+                  {error}
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-bold text-slate-700 mb-2">Full Name</label>
+                  <label htmlFor="name" className="block text-sm font-bold text-slate-700 mb-2">Full Name *</label>
                   <input 
                     type="text" 
                     name="name" 
                     id="name" 
                     required 
-                    className="w-full px-5 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-transparent transition-all"
+                    className="w-full px-5 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent transition-all"
                     placeholder="John Doe"
                   />
                 </div>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="email" className="block text-sm font-bold text-slate-700 mb-2">Email Address</label>
+                    <label htmlFor="email" className="block text-sm font-bold text-slate-700 mb-2">Email Address *</label>
                     <input 
                       type="email" 
                       name="email" 
                       id="email" 
                       required 
-                      className="w-full px-5 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-transparent transition-all"
+                      className="w-full px-5 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent transition-all"
                       placeholder="john@example.com"
                     />
                   </div>
@@ -118,44 +209,58 @@ export default function Contact() {
                       type="tel" 
                       name="phone" 
                       id="phone" 
-                      className="w-full px-5 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-transparent transition-all"
+                      className="w-full px-5 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent transition-all"
                       placeholder="(555) 123-4567"
                     />
                   </div>
                 </div>
-                
+
+                <div>
+                  <label htmlFor="reason" className="block text-sm font-bold text-slate-700 mb-2">Reason for Contact *</label>
+                  <select 
+                    name="reason" 
+                    id="reason" 
+                    required
+                    className="w-full px-5 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent transition-all appearance-none"
+                  >
+                    <option value="">-- Select a reason --</option>
+                    {CONTACT_REASONS.map((r) => (
+                      <option key={r.value} value={r.value}>{r.label}</option>
+                    ))}
+                  </select>
+                </div>
+
                 <div>
                   <label htmlFor="service" className="block text-sm font-bold text-slate-700 mb-2">Service of Interest</label>
                   <select 
                     name="service" 
                     id="service" 
-                    className="w-full px-5 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-transparent transition-all appearance-none"
+                    className="w-full px-5 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent transition-all appearance-none"
                   >
-                    <option value="general">General Inquiry</option>
-                    <option value="interpretation">Interpretation</option>
-                    <option value="translation">Translation & Localization</option>
-                    <option value="bpo">BPO Solutions</option>
-                    <option value="partnership">Partnership Opportunity</option>
+                    {SERVICES.map((s) => (
+                      <option key={s.value} value={s.value}>{s.label}</option>
+                    ))}
                   </select>
                 </div>
                 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-bold text-slate-700 mb-2">Message</label>
+                  <label htmlFor="message" className="block text-sm font-bold text-slate-700 mb-2">Message *</label>
                   <textarea 
                     name="message" 
                     id="message" 
                     rows={5} 
                     required 
-                    className="w-full px-5 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-transparent transition-all resize-y"
+                    className="w-full px-5 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent transition-all resize-y"
                     placeholder="How can we help you?"
                   ></textarea>
                 </div>
                 
                 <button 
                   type="submit" 
-                  className="w-full inline-flex justify-center items-center px-8 py-4 rounded-xl bg-brand-navy text-white font-bold text-lg shadow-lg hover:bg-slate-800 hover:shadow-xl active:scale-95 transition-all duration-200"
+                  disabled={isSubmitting}
+                  className="w-full inline-flex justify-center items-center px-8 py-4 rounded-xl bg-brand-navy text-white font-bold text-lg shadow-lg hover:bg-slate-800 hover:shadow-xl active:scale-95 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Send Message
+                  {isSubmitting ? "Sending..." : "Send Message"}
                   <Send className="w-5 h-5 ml-2" />
                 </button>
               </form>

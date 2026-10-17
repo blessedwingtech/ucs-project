@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { signOut, useSession } from "next-auth/react";
-import { LayoutDashboard, FileText, LogOut, Loader2 } from "lucide-react";
+import { LayoutDashboard, FileText, Mail, LogOut, Loader2 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { SessionProvider } from "next-auth/react";
 
@@ -26,7 +26,7 @@ function AdminContent({ children }: { children: React.ReactNode }) {
   if (status === "loading") {
     return (
       <div className="min-h-[60vh] flex items-center justify-center">
-        <Loader2 className="w-8 h-8 text-brand-teal animate-spin" />
+        <Loader2 className="w-8 h-8 text-brand-blue animate-spin" />
       </div>
     );
   }
@@ -40,24 +40,31 @@ function AdminContent({ children }: { children: React.ReactNode }) {
       {/* Sidebar */}
       <aside className="w-full md:w-64 bg-brand-navy text-white shadow-xl md:min-h-screen">
         <div className="p-6">
-          <h2 className="text-2xl font-bold text-brand-teal tracking-tight mb-2">UCS Admin</h2>
+          <h2 className="text-2xl font-bold text-brand-blue tracking-tight mb-2">UCS Admin</h2>
           <p className="text-slate-400 text-sm truncate">{session.user?.email}</p>
         </div>
         
         <nav className="px-4 py-4 space-y-2">
           <Link 
             href="/admin" 
-            className={`flex items-center px-4 py-3 rounded-lg transition-colors ${pathname === '/admin' ? 'bg-brand-teal text-brand-navy font-bold' : 'text-slate-300 hover:bg-slate-800 hover:text-white'}`}
+            className={`flex items-center px-4 py-3 rounded-lg transition-colors ${pathname === '/admin' ? 'bg-brand-blue text-white font-bold' : 'text-slate-300 hover:bg-slate-800 hover:text-white'}`}
           >
             <LayoutDashboard className="w-5 h-5 mr-3" />
             Dashboard
           </Link>
           <Link 
             href="/admin/announcements" 
-            className={`flex items-center px-4 py-3 rounded-lg transition-colors ${pathname?.startsWith('/admin/announcements') ? 'bg-brand-teal text-brand-navy font-bold' : 'text-slate-300 hover:bg-slate-800 hover:text-white'}`}
+            className={`flex items-center px-4 py-3 rounded-lg transition-colors ${pathname?.startsWith('/admin/announcements') ? 'bg-brand-blue text-white font-bold' : 'text-slate-300 hover:bg-slate-800 hover:text-white'}`}
           >
             <FileText className="w-5 h-5 mr-3" />
             Announcements
+          </Link>
+          <Link 
+            href="/admin/messages" 
+            className={`flex items-center px-4 py-3 rounded-lg transition-colors ${pathname?.startsWith('/admin/messages') ? 'bg-brand-blue text-white font-bold' : 'text-slate-300 hover:bg-slate-800 hover:text-white'}`}
+          >
+            <Mail className="w-5 h-5 mr-3" />
+            Messages
           </Link>
         </nav>
         

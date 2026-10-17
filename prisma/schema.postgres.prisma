@@ -31,6 +31,10 @@ model ContactSubmission {
   id        String   @id @default(cuid())
   name      String
   email     String
+  phone     String?
+  reason    String
+  service   String?
   message   String
+  read      Boolean  @default(false)
   createdAt DateTime @default(now())
 }

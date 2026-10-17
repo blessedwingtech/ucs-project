@@ -42,7 +42,7 @@ export default function AdminLogin() {
       <div className="max-w-md w-full space-y-8 bg-white p-10 rounded-2xl shadow-sm border border-slate-100">
         <div className="flex flex-col items-center">
           <div className="w-12 h-12 bg-brand-navy rounded-xl flex items-center justify-center mb-4">
-            <Lock className="w-6 h-6 text-brand-teal" />
+            <Lock className="w-6 h-6 text-brand-blue" />
           </div>
           <h2 className="text-center text-3xl font-extrabold text-brand-navy">
             Admin Access
@@ -70,7 +70,7 @@ export default function AdminLogin() {
                 type="email"
                 autoComplete="email"
                 required
-                className="appearance-none relative block w-full px-4 py-3 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-transparent sm:text-sm"
+                className="appearance-none relative block w-full px-4 py-3 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent sm:text-sm"
                 placeholder="admin@universecenterservices.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -86,7 +86,7 @@ export default function AdminLogin() {
                 type="password"
                 autoComplete="current-password"
                 required
-                className="appearance-none relative block w-full px-4 py-3 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-transparent sm:text-sm"
+                className="appearance-none relative block w-full px-4 py-3 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent sm:text-sm"
                 placeholder="••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -98,7 +98,7 @@ export default function AdminLogin() {
             <button
               type="submit"
               disabled={loading}
-              className={`group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-md text-brand-navy bg-brand-teal hover:bg-teal-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-teal transition-colors ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}
+              className={`group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-md text-white bg-brand-blue hover:bg-brand-blue-light focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-blue transition-colors ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}
             >
               {loading ? 'Signing in...' : 'Sign in'}
             </button>

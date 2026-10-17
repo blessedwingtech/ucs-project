@@ -46,7 +46,7 @@ export default async function AdminAnnouncements() {
         <h1 className="text-2xl font-bold text-brand-navy">Announcements</h1>
         <Link 
           href="/admin/announcements/new" 
-          className="inline-flex items-center px-4 py-2 bg-brand-teal text-brand-navy font-bold rounded-lg hover:bg-teal-400 transition-colors"
+          className="inline-flex items-center px-4 py-2 bg-brand-blue text-white font-bold rounded-lg hover:bg-brand-blue-light transition-colors"
         >
           <Plus className="w-4 h-4 mr-2" />
           New Post

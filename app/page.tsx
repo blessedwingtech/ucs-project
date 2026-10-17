@@ -19,19 +19,19 @@ export default async function Home() {
       {/* Hero Section */}
       <section className="bg-brand-navy text-white py-24 lg:py-36 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         {/* Animated ambient lighting glows */}
-        <div className="absolute top-0 right-1/4 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-brand-teal/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute top-0 right-1/4 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-brand-blue/20 rounded-full blur-3xl pointer-events-none"></div>
         <div className="absolute bottom-0 left-1/3 translate-y-1/3 w-96 h-96 bg-brand-gold/15 rounded-full blur-3xl pointer-events-none"></div>
-        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#14b8a6_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
+        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#1B4F8F_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
 
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-800/80 border border-slate-700/80 text-brand-teal text-sm font-semibold mb-8 backdrop-blur-md shadow-sm">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-800/80 border border-slate-700/80 text-brand-blue text-sm font-semibold mb-8 backdrop-blur-md shadow-sm">
               <Sparkles className="w-4 h-4 animate-pulse" />
               <span>Next-Generation Language & Business Solutions</span>
             </div>
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight mb-6 leading-none">
               Breaking Language Barriers.<br/>
-              <span className="bg-gradient-to-r from-brand-teal via-emerald-300 to-teal-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-brand-blue via-brand-blue-light to-brand-blue-light bg-clip-text text-transparent">
                 Powering Business Success.
               </span>
             </h1>
@@ -41,14 +41,14 @@ export default async function Home() {
             <div className="flex flex-col sm:flex-row gap-4 sm:items-center">
               <Link 
                 href="/services/interpretation" 
-                className="inline-flex justify-center items-center px-8 py-4 rounded-xl bg-gradient-to-r from-brand-teal to-emerald-400 text-brand-navy font-black text-lg shadow-xl shadow-brand-teal/20 hover:scale-105 active:scale-95 transition-all duration-200"
+                className="inline-flex justify-center items-center px-8 py-4 rounded-xl bg-gradient-to-r from-brand-blue to-brand-blue-light text-white font-black text-lg shadow-xl shadow-brand-blue/20 hover:scale-105 active:scale-95 transition-all duration-200"
               >
                 Explore Services
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
               <Link 
                 href="/contact" 
-                className="inline-flex justify-center items-center px-8 py-4 rounded-xl border border-slate-600 bg-slate-900/50 hover:bg-slate-800/80 text-white font-bold text-lg hover:border-brand-teal transition-all duration-200"
+                className="inline-flex justify-center items-center px-8 py-4 rounded-xl border border-slate-600 bg-slate-900/50 hover:bg-slate-800/80 text-white font-bold text-lg hover:border-brand-blue transition-all duration-200"
               >
                 Contact Us
               </Link>
@@ -61,7 +61,7 @@ export default async function Home() {
       <section className="py-24 bg-slate-50/70 px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-xs font-black uppercase tracking-widest text-brand-teal mb-3">Our Core Solutions</h2>
+            <h2 className="text-xs font-black uppercase tracking-widest text-brand-blue mb-3">Our Core Solutions</h2>
             <h3 className="text-3xl sm:text-4xl font-black text-brand-navy mb-4 tracking-tight">How We Support Your Organization</h3>
             <p className="text-lg text-slate-600 leading-relaxed">
               We connect organizations with professional language experts and remote business support specialists, ensuring exceptional communication and workflow execution.
@@ -71,9 +71,9 @@ export default async function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             {/* Service 1 */}
             <div className="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-2xl hover:shadow-slate-200/60 border border-slate-100/80 hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-brand-teal to-teal-300 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-brand-blue to-brand-blue-light opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div>
-                <div className="w-14 h-14 bg-teal-50/80 rounded-2xl flex items-center justify-center text-brand-teal mb-6 group-hover:bg-brand-teal group-hover:text-brand-navy transition-all duration-300 shadow-sm">
+                <div className="w-14 h-14 bg-blue-50/80 rounded-2xl flex items-center justify-center text-brand-blue mb-6 group-hover:bg-brand-blue group-hover:text-white transition-all duration-300 shadow-sm">
                   <MessageSquare className="w-7 h-7" />
                 </div>
                 <h4 className="text-2xl font-bold text-brand-navy mb-3">Interpretation</h4>
@@ -81,16 +81,16 @@ export default async function Home() {
                   Over-the-Phone (OPI), Video Remote (VRI), and On-Site interpretation across healthcare, legal, education, and corporate environments.
                 </p>
               </div>
-              <Link href="/services/interpretation" className="inline-flex items-center font-bold text-brand-navy group-hover:text-brand-teal transition-colors">
+              <Link href="/services/interpretation" className="inline-flex items-center font-bold text-brand-navy group-hover:text-brand-blue transition-colors">
                 Learn more <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
             
             {/* Service 2 */}
             <div className="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-2xl hover:shadow-slate-200/60 border border-slate-100/80 hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-brand-teal to-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-brand-blue to-brand-blue-light opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div>
-                <div className="w-14 h-14 bg-teal-50/80 rounded-2xl flex items-center justify-center text-brand-teal mb-6 group-hover:bg-brand-teal group-hover:text-brand-navy transition-all duration-300 shadow-sm">
+                <div className="w-14 h-14 bg-blue-50/80 rounded-2xl flex items-center justify-center text-brand-blue mb-6 group-hover:bg-brand-blue group-hover:text-white transition-all duration-300 shadow-sm">
                   <Globe2 className="w-7 h-7" />
                 </div>
                 <h4 className="text-2xl font-bold text-brand-navy mb-3">Translation & Localization</h4>
@@ -98,7 +98,7 @@ export default async function Home() {
                   Accurate, professional content solutions including business contracts, medical forms, legal documents, manuals, and digital platform localization.
                 </p>
               </div>
-              <Link href="/services/translation" className="inline-flex items-center font-bold text-brand-navy group-hover:text-brand-teal transition-colors">
+              <Link href="/services/translation" className="inline-flex items-center font-bold text-brand-navy group-hover:text-brand-blue transition-colors">
                 Learn more <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
@@ -127,7 +127,7 @@ export default async function Home() {
       <section className="py-24 bg-white px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 items-center">
           <div className="lg:w-1/2">
-            <h2 className="text-xs font-black uppercase tracking-widest text-brand-teal mb-3">Why Work With Us</h2>
+            <h2 className="text-xs font-black uppercase tracking-widest text-brand-blue mb-3">Why Work With Us</h2>
             <h3 className="text-3xl sm:text-4xl font-black text-brand-navy mb-6 tracking-tight">
               Built on Professional Excellence & Human Expertise
             </h3>
@@ -145,9 +145,9 @@ export default async function Home() {
               ].map((item, i) => {
                 const Icon = item.icon;
                 return (
-                  <div key={i} className="flex items-center p-3 rounded-xl bg-slate-50 border border-slate-100/80 hover:border-brand-teal/40 transition-colors">
-                    <div className="w-8 h-8 rounded-lg bg-teal-100/60 flex items-center justify-center text-brand-teal mr-3 flex-shrink-0">
-                      <Icon className="w-4 h-4 text-teal-700" />
+                  <div key={i} className="flex items-center p-3 rounded-xl bg-slate-50 border border-slate-100/80 hover:border-brand-blue/40 transition-colors">
+                    <div className="w-8 h-8 rounded-lg bg-blue-100/60 flex items-center justify-center text-brand-blue mr-3 flex-shrink-0">
+                      <Icon className="w-4 h-4 text-blue-700" />
                     </div>
                     <span className="font-semibold text-slate-800 text-sm">{item.text}</span>
                   </div>
@@ -167,11 +167,11 @@ export default async function Home() {
           {/* Right Visual Graphic Card */}
           <div className="lg:w-1/2 w-full">
             <div className="relative bg-gradient-to-br from-brand-navy to-slate-900 rounded-3xl p-8 sm:p-12 overflow-hidden shadow-2xl border border-slate-800">
-              <div className="absolute -top-20 -right-20 w-64 h-64 bg-brand-teal/20 rounded-full blur-2xl"></div>
+              <div className="absolute -top-20 -right-20 w-64 h-64 bg-brand-blue/20 rounded-full blur-2xl"></div>
               <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-brand-gold/10 rounded-full blur-2xl"></div>
               
               <div className="relative z-10 space-y-6">
-                <div className="w-16 h-16 rounded-2xl bg-brand-teal/10 border border-brand-teal/30 flex items-center justify-center text-brand-teal">
+                <div className="w-16 h-16 rounded-2xl bg-brand-blue/10 border border-brand-blue/30 flex items-center justify-center text-brand-blue">
                   <Building2 className="w-8 h-8" />
                 </div>
                 
@@ -185,7 +185,7 @@ export default async function Home() {
 
                 <div className="pt-6 border-t border-slate-800/80 grid grid-cols-2 gap-4">
                   <div>
-                    <div className="text-3xl font-extrabold text-brand-teal mb-1">100%</div>
+                    <div className="text-3xl font-extrabold text-brand-blue mb-1">100%</div>
                     <div className="text-xs text-slate-400 font-semibold uppercase tracking-wider">Quality Focused</div>
                   </div>
                   <div>
@@ -204,11 +204,11 @@ export default async function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12 gap-4">
             <div>
-              <h2 className="text-xs font-black uppercase tracking-widest text-brand-teal mb-2">Company Updates</h2>
+              <h2 className="text-xs font-black uppercase tracking-widest text-brand-blue mb-2">Company Updates</h2>
               <h3 className="text-3xl font-black text-brand-navy tracking-tight">Latest News & Announcements</h3>
               <p className="text-slate-600 mt-1">Stay informed on our newest initiatives and company insights.</p>
             </div>
-            <Link href="/announcements" className="hidden sm:inline-flex items-center text-brand-navy hover:text-brand-teal font-bold transition-colors">
+            <Link href="/announcements" className="hidden sm:inline-flex items-center text-brand-navy hover:text-brand-blue font-bold transition-colors">
               View all articles <ArrowRight className="w-4 h-4 ml-1" />
             </Link>
           </div>
@@ -219,7 +219,7 @@ export default async function Home() {
                 <Link 
                   href={`/announcements/${announcement.slug}`} 
                   key={announcement.id} 
-                  className="group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100/80 hover:shadow-xl hover:border-brand-teal/40 transition-all duration-300 hover:-translate-y-1"
+                  className="group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100/80 hover:shadow-xl hover:border-brand-blue/40 transition-all duration-300 hover:-translate-y-1"
                 >
                   {announcement.coverImageUrl ? (
                     <div className="h-48 w-full overflow-hidden bg-slate-100">
@@ -230,23 +230,23 @@ export default async function Home() {
                       />
                     </div>
                   ) : (
-                    <div className="h-48 w-full bg-gradient-to-tr from-brand-navy via-slate-800 to-teal-900/40 flex items-center justify-center relative overflow-hidden">
+                    <div className="h-48 w-full bg-gradient-to-tr from-brand-navy via-slate-800 to-blue-900/40 flex items-center justify-center relative overflow-hidden">
                       <span className="text-white/20 font-black text-5xl select-none">UCS</span>
                     </div>
                   )}
                   <div className="p-6 flex-1 flex flex-col justify-between">
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-wider text-brand-teal mb-2">
+                      <p className="text-xs font-semibold uppercase tracking-wider text-brand-blue mb-2">
                         {announcement.publishedAt ? new Date(announcement.publishedAt).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }) : 'News'}
                       </p>
-                      <h4 className="text-xl font-bold text-brand-navy mb-3 group-hover:text-brand-teal transition-colors line-clamp-2">
+                      <h4 className="text-xl font-bold text-brand-navy mb-3 group-hover:text-brand-blue transition-colors line-clamp-2">
                         {announcement.title}
                       </h4>
                       <p className="text-slate-600 text-sm line-clamp-3 mb-6 leading-relaxed">
                         {announcement.excerpt || announcement.content.substring(0, 140) + "..."}
                       </p>
                     </div>
-                    <div className="text-xs font-bold text-slate-800 flex items-center group-hover:text-brand-teal transition-colors pt-4 border-t border-slate-50">
+                    <div className="text-xs font-bold text-slate-800 flex items-center group-hover:text-brand-blue transition-colors pt-4 border-t border-slate-50">
                       Read announcement <ArrowRight className="w-3.5 h-3.5 ml-1 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
@@ -270,7 +270,7 @@ export default async function Home() {
 
       {/* Premium CTA Section */}
       <section className="bg-gradient-to-br from-brand-navy via-slate-900 to-[#0B2545] text-white py-24 px-4 sm:px-6 lg:px-8 text-center relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-teal/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-blue/15 rounded-full blur-3xl pointer-events-none"></div>
         <div className="max-w-4xl mx-auto relative z-10">
           <h2 className="text-3xl sm:text-5xl font-black mb-6 tracking-tight">Ready to break communication barriers?</h2>
           <p className="text-lg sm:text-xl text-slate-300 mb-10 max-w-2xl mx-auto font-normal leading-relaxed">
@@ -279,7 +279,7 @@ export default async function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
               href="/contact" 
-              className="inline-flex justify-center items-center px-9 py-4 rounded-xl bg-gradient-to-r from-brand-teal to-emerald-400 text-brand-navy font-black text-lg shadow-xl hover:scale-105 active:scale-95 transition-all duration-200"
+              className="inline-flex justify-center items-center px-9 py-4 rounded-xl bg-gradient-to-r from-brand-blue to-brand-blue-light text-white font-black text-lg shadow-xl hover:scale-105 active:scale-95 transition-all duration-200"
             >
               Get Started Now
               <ArrowRight className="w-5 h-5 ml-2" />
