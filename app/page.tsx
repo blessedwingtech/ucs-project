@@ -78,7 +78,7 @@ export default async function Home() {
                 </div>
                 <h4 className="text-2xl font-bold text-brand-navy mb-3">Interpretation</h4>
                 <p className="text-slate-600 mb-6 leading-relaxed">
-                  Over-the-Phone (OPI), Video Remote (VRI), and On-Site interpretation across healthcare, legal, education, and corporate environments.
+                  Consecutive, Simultaneous, Over-the-Phone (OPI), Video Remote (VRI), and On-Site interpretation across government, social, community, healthcare, and corporate sectors.
                 </p>
               </div>
               <Link href="/services/interpretation" className="inline-flex items-center font-bold text-brand-navy group-hover:text-brand-blue transition-colors">
@@ -182,47 +182,39 @@ export default async function Home() {
               </span>
             </div>
 
-            <div className="flex flex-wrap gap-2.5">
+            <div className="flex flex-wrap gap-2 max-h-[360px] overflow-y-auto p-2">
               {[
-                "Arabic (العربية)",
-                "Mandarin Chinese (中文)",
-                "Cantonese (粵語)",
-                "Japanese (日本語)",
-                "Korean (한국어)",
-                "German (Deutsch)",
-                "Italian (Italiano)",
-                "Dutch (Nederlands)",
-                "Russian (Русский)",
-                "Turkish (Türkçe)",
-                "Hindi (हिन्दी)",
-                "Vietnamese (Tiếng Việt)",
-                "Tagalog (Filipino)",
-                "Polish (Polski)",
-                "Romanian (Română)",
-                "Greek (Ελληνικά)",
-                "Ukrainian (Українська)",
-                "Bengali (বাংলা)",
-                "Hebrew (עברית)",
-                "Swahili (Kiswahili)",
-                "Urdu (اردو)",
-                "Persian / Farsi (فارسی)",
-                "Amharic (አማርኛ)",
-                "Thai (ไทย)",
-                "Indonesian (Bahasa)",
-                "Punjabi (ਪੰਜਾਬੀ)",
-                "+ 125 more regional dialects & rare languages"
+                "Spanish", "Mandarin Chinese", "Cantonese", "Vietnamese", "Tagalog", 
+                "Korean", "Arabic", "Armenian", "Farsi (Persian)", "Dari", 
+                "Pashto", "Russian", "Ukrainian", "French", "Portuguese", 
+                "Haitian Creole", "German", "Italian", "Polish", "Greek", 
+                "Turkish", "Hebrew", "Hindi", "Urdu", "Punjabi", 
+                "Bengali", "Gujarati", "Tamil", "Telugu", "Nepali", 
+                "Burmese", "Khmer", "Thai", "Lao", "Indonesian", 
+                "Malay", "Japanese", "Somali", "Amharic", "Tigrinya", 
+                "Swahili", "Chichewa (Nyanja)", "Bemba", "Yoruba", "Igbo", 
+                "Hausa", "Lingala", "Kinyarwanda", "Kirundi", "Oromo", 
+                "Wolof", "Afrikaans", "Zulu", "Xhosa", "Shona", 
+                "Sesotho", "Akan (Twi)", "Ewe", "Fula (Fulani)", "Krio", 
+                "Bosnian", "Serbian", "Croatian", "Albanian", "Romanian", 
+                "Bulgarian", "Hungarian", "Czech", "Slovak", "Dutch", 
+                "Swedish", "Norwegian", "Danish", "Finnish", "Lithuanian", 
+                "Latvian", "Estonian", "Georgian", "Azerbaijani", "Kazakh", 
+                "Uzbek", "Mongolian", "Assyrian (Syriac)", "Kurdish (Kurmanji)", "Kurdish (Sorani)", 
+                "Chaldean", "Japanese Sign Language", "American Sign Language (ASL)", "British Sign Language (BSL)", "International Sign", 
+                "Hmong"
               ].map((language, i) => (
                 <span 
                   key={i}
-                  className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-colors ${
-                    i === 26 
-                      ? 'bg-gradient-to-r from-brand-blue to-brand-navy text-white font-bold shadow-sm'
-                      : 'bg-slate-100 text-slate-700 hover:bg-blue-50 hover:text-brand-blue'
-                  }`}
+                  className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-blue-50 hover:text-brand-blue transition-colors cursor-default"
                 >
+                  <span className="text-[10px] text-slate-400 font-bold mr-1">{i + 1}.</span>
                   {language}
                 </span>
               ))}
+              <span className="px-4 py-1.5 rounded-lg text-xs font-bold bg-gradient-to-r from-brand-blue to-brand-navy text-white shadow-xs">
+                + 60 more regional dialects & rare languages (150+ total)
+              </span>
             </div>
           </div>
 

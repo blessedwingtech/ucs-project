@@ -1,12 +1,36 @@
-import { Briefcase, ArrowRight, UserPlus, FileText, CheckCircle2, Sparkles } from "lucide-react";
+import { Briefcase, ArrowRight, UserPlus, FileText, CheckCircle2, Sparkles, Clock, HeadphonesIcon } from "lucide-react";
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Careers | Universe Center Services",
-  description: "Join our network of professional interpreters, translators, and BPO agents.",
+  description: "Join our global network of freelance interpreters, professional translators, and remote BPO professionals.",
 };
 
 export default function Careers() {
+  const opportunities = [
+    {
+      title: "Freelance Interpreters",
+      description: "On-demand and scheduled OPI, VRI, and on-site interpretation across 150+ languages.",
+      icon: UserPlus,
+    },
+    {
+      title: "Professional Translators",
+      description: "Document translation, technical localization, proofreading, and certified adaptation.",
+      icon: FileText,
+    },
+    {
+      title: "Remote BPO Agents",
+      description: "Customer service, inbound/outbound support, email handling, and administrative assistance.",
+      icon: HeadphonesIcon,
+    },
+    {
+      title: "Full-Time Remote BPO Professionals (8-Hour Shifts Across Different Time Zones)",
+      description: "Dedicated operational shifts supporting enterprise clients globally with seamless workflow coverage.",
+      icon: Clock,
+    },
+  ];
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
@@ -33,80 +57,108 @@ export default function Careers() {
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             
             <div className="space-y-8">
-              <h2 className="text-3xl sm:text-4xl font-black text-brand-navy tracking-tight leading-tight">
-                Work With A Global Network
-              </h2>
-              <p className="text-lg text-slate-600 leading-relaxed">
-                We are constantly expanding our roster of skilled interpreters, translators, and remote business support specialists. Whether you are a seasoned medical interpreter or a bilingual customer service expert, there is a place for you at UCS.
-              </p>
+              <div>
+                <h2 className="text-3xl sm:text-4xl font-black text-brand-navy tracking-tight leading-tight mb-4">
+                  Work With A Global Network
+                </h2>
+                <p className="text-lg text-slate-600 leading-relaxed">
+                  We are constantly expanding our roster of skilled interpreters, translators, and remote business support specialists. Whether you are a certified medical interpreter or an experienced BPO professional, there is a place for you at Universe Center Services.
+                </p>
+              </div>
               
-              <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm mt-8">
+              <div className="bg-white p-8 rounded-3xl border border-slate-200/80 shadow-sm mt-8">
                 <h3 className="text-xl font-bold text-brand-navy mb-6">Current Opportunities</h3>
                 <div className="space-y-4">
-                  <div className="flex items-center p-4 bg-slate-50 rounded-xl border border-slate-100/80">
-                    <UserPlus className="w-6 h-6 text-brand-blue mr-4 flex-shrink-0" />
-                    <div>
-                      <h4 className="font-bold text-brand-navy">Freelance Interpreters (OPI/VRI)</h4>
-                      <p className="text-sm text-slate-500">Multiple languages</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center p-4 bg-slate-50 rounded-xl border border-slate-100/80">
-                    <FileText className="w-6 h-6 text-brand-blue mr-4 flex-shrink-0" />
-                    <div>
-                      <h4 className="font-bold text-brand-navy">Professional Translators</h4>
-                      <p className="text-sm text-slate-500">Document & Localization</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center p-4 bg-slate-50 rounded-xl border border-slate-100/80">
-                    <Briefcase className="w-6 h-6 text-brand-blue mr-4 flex-shrink-0" />
-                    <div>
-                      <h4 className="font-bold text-brand-navy">BPO Remote Agents</h4>
-                      <p className="text-sm text-slate-500">Customer Support & Admin</p>
-                    </div>
-                  </div>
+                  {opportunities.map((opp, idx) => {
+                    const Icon = opp.icon;
+                    return (
+                      <div key={idx} className="flex items-start p-4 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-blue/30 transition-all">
+                        <div className="w-9 h-9 rounded-lg bg-blue-100/60 flex items-center justify-center text-brand-blue mr-4 flex-shrink-0 mt-0.5">
+                          <Icon className="w-5 h-5 text-brand-blue" />
+                        </div>
+                        <div>
+                          <h4 className="font-bold text-brand-navy text-base">
+                            {idx + 1}. {opp.title}
+                          </h4>
+                          <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                            {opp.description}
+                          </p>
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </div>
 
-            <div className="bg-brand-navy text-white p-10 sm:p-14 rounded-3xl shadow-2xl border border-slate-800 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-brand-blue/10 rounded-full blur-3xl pointer-events-none"></div>
+            {/* How to Apply Section */}
+            <div className="bg-gradient-to-br from-[#0B2545] via-[#0E356A] to-[#1B4F8F] text-white p-10 sm:p-14 rounded-3xl shadow-2xl border border-blue-900/30 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/15 rounded-full blur-3xl pointer-events-none"></div>
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none"></div>
               
-              <h3 className="text-3xl font-black mb-6 relative z-10">How to Apply</h3>
-              <p className="text-slate-300 mb-10 leading-relaxed relative z-10">
-                If you are passionate about communication and professional service, we would love to hear from you. Please send your resume and a cover letter detailing your language pairs and experience.
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 border border-white/20 text-sky-200 text-xs font-bold tracking-wider uppercase mb-4 backdrop-blur-sm">
+                <Briefcase className="w-3.5 h-3.5 text-amber-300" />
+                <span>Application Process</span>
+              </div>
+
+              <h3 className="text-3xl font-black mb-4 relative z-10 tracking-tight">How to Apply</h3>
+              <p className="text-slate-300 mb-8 leading-relaxed relative z-10 text-sm">
+                We welcome motivated professionals from all linguistic and operational backgrounds. Follow our simple three-step process:
               </p>
               
-              <ul className="space-y-6 mb-12 relative z-10">
-                <li className="flex items-start">
-                  <CheckCircle2 className="w-6 h-6 text-brand-blue mr-4 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="font-bold text-white">1. Send your Resume</h4>
-                    <p className="text-slate-400 text-sm mt-1">Email us at hiring.ucs@gmail.com</p>
+              <div className="space-y-6 mb-10 relative z-10">
+                <div className="flex items-start p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
+                  <div className="w-8 h-8 rounded-full bg-amber-400 text-slate-950 font-black text-sm flex items-center justify-center mr-4 flex-shrink-0 mt-0.5">
+                    1
                   </div>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle2 className="w-6 h-6 text-brand-blue mr-4 flex-shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="font-bold text-white">2. Assessment</h4>
-                    <p className="text-slate-400 text-sm mt-1">We will review your qualifications and contact you for testing if there is a match.</p>
+                    <h4 className="font-bold text-white text-base">Submit Your Resume</h4>
+                    <p className="text-slate-300 text-sm mt-1 leading-relaxed">
+                      Submit your resume through our application form.
+                    </p>
                   </div>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle2 className="w-6 h-6 text-brand-blue mr-4 flex-shrink-0 mt-0.5" />
+                </div>
+
+                <div className="flex items-start p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
+                  <div className="w-8 h-8 rounded-full bg-amber-400 text-slate-950 font-black text-sm flex items-center justify-center mr-4 flex-shrink-0 mt-0.5">
+                    2
+                  </div>
                   <div>
-                    <h4 className="font-bold text-white">3. Onboarding</h4>
-                    <p className="text-slate-400 text-sm mt-1">Join our platform and start receiving assignments.</p>
+                    <h4 className="font-bold text-white text-base">Interview & Assessment</h4>
+                    <p className="text-slate-300 text-sm mt-1 leading-relaxed">
+                      Our recruitment team will review your application and schedule an interview and assessment if you meet the requirements.
+                    </p>
                   </div>
-                </li>
-              </ul>
+                </div>
+
+                <div className="flex items-start p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
+                  <div className="w-8 h-8 rounded-full bg-amber-400 text-slate-950 font-black text-sm flex items-center justify-center mr-4 flex-shrink-0 mt-0.5">
+                    3
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-white text-base">Onboarding</h4>
+                    <p className="text-slate-300 text-sm mt-1 leading-relaxed">
+                      Successful candidates will receive the next steps for onboarding and placement based on available opportunities.
+                    </p>
+                  </div>
+                </div>
+              </div>
               
-              <a 
-                href="mailto:hiring.ucs@gmail.com" 
-                className="inline-flex justify-center items-center w-full sm:w-auto px-9 py-4 rounded-xl bg-gradient-to-r from-brand-blue to-brand-blue-light text-white font-black text-lg shadow-xl shadow-brand-blue/20 hover:scale-105 active:scale-95 transition-all duration-200 relative z-10"
-              >
-                Email your Resume
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </a>
+              <div className="flex flex-col sm:flex-row gap-3 relative z-10">
+                <Link 
+                  href="/contact" 
+                  className="inline-flex justify-center items-center px-7 py-3.5 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-500 hover:to-amber-600 text-slate-950 font-black text-sm shadow-xl transition-all duration-200"
+                >
+                  Apply via Contact Form
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Link>
+                <a 
+                  href="mailto:hiring.ucs@gmail.com" 
+                  className="inline-flex justify-center items-center px-7 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-sm backdrop-blur-sm transition-all duration-200"
+                >
+                  Email: hiring.ucs@gmail.com
+                </a>
+              </div>
             </div>
 
           </div>
