@@ -17,10 +17,8 @@ export default function Navbar() {
           {/* Brand Logo */}
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="group flex items-center gap-3">
-              <img src="/icon.svg" alt="UCS Logo" className="h-11 w-11 rounded-xl shadow-md group-hover:scale-105 transition-transform" />
-              <div className="flex flex-col">
-                <span className="text-xl font-black tracking-tight text-white group-hover:text-amber-300 transition-colors leading-none">UCS</span>
-                <span className="text-[10px] font-bold tracking-wider text-slate-300 uppercase mt-0.5">Universe Center Services</span>
+              <div className="bg-white rounded-xl px-2.5 py-1 shadow-md group-hover:scale-105 transition-all">
+                <img src="/logo-ucs.png" alt="Universe Center Services" className="h-10 w-auto object-contain" />
               </div>
             </Link>
           </div>

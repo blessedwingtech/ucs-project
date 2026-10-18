@@ -13,10 +13,8 @@ export default function Footer() {
           
           <div className="col-span-1 md:col-span-2 lg:col-span-1 pr-4">
             <Link href="/" className="group inline-flex items-center gap-3 mb-6">
-              <img src="/icon.svg" alt="UCS Logo" className="h-12 w-12 rounded-xl shadow-md group-hover:scale-105 transition-transform" />
-              <div className="flex flex-col">
-                <span className="text-2xl font-black tracking-tight text-white group-hover:text-amber-300 transition-colors leading-none">UCS</span>
-                <span className="text-[10px] font-bold tracking-wider text-slate-300 uppercase mt-0.5">Universe Center Services</span>
+              <div className="bg-white rounded-xl px-3 py-1.5 shadow-md group-hover:scale-105 transition-all">
+                <img src="/logo-ucs.png" alt="Universe Center Services" className="h-12 w-auto object-contain" />
               </div>
             </Link>
             <p className="text-slate-300 text-sm leading-relaxed mb-6 font-light">
