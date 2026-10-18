@@ -1,4 +1,4 @@
-import { MessageSquare, Phone, Video, MapPin, Calendar, HeartPulse, Scale, Briefcase, GraduationCap, HeadphonesIcon, ArrowRight, Sparkles } from "lucide-react";
+import { MessageSquare, Phone, Video, MapPin, Calendar, HeartPulse, Scale, Briefcase, GraduationCap, HeadphonesIcon, ArrowRight, Sparkles, Globe2 } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -49,7 +49,7 @@ export default function Interpretation() {
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight">Interpretation</h1>
           </div>
           <p className="text-lg sm:text-2xl text-blue-100/90 max-w-3xl font-light leading-relaxed">
-            Real-time multilingual communication solutions provided by qualified professionals.
+            Real-time multilingual communication solutions across 150+ languages and dialects provided by certified professionals.
           </p>
         </div>
       </section>
@@ -77,11 +77,29 @@ export default function Interpretation() {
           </div>
 
           <div className="bg-white rounded-3xl p-8 md:p-12 border border-slate-100 shadow-xl shadow-slate-200/40 relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-brand-blue to-brand-blue-light"></div>
-            <h2 className="text-3xl sm:text-4xl font-black text-brand-navy mb-10 tracking-tight">Supported Languages</h2>
+            <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-brand-blue via-blue-600 to-brand-gold"></div>
             
-            <div className="mb-12">
-              <h3 className="text-sm font-black uppercase tracking-widest text-brand-blue mb-5">Core Languages</h3>
+            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-10 pb-8 border-b border-slate-100">
+              <div>
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-brand-blue text-xs font-black uppercase tracking-wider mb-3">
+                  <Globe2 className="w-3.5 h-3.5" />
+                  <span>Global Linguistic Coverage</span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-black text-brand-navy tracking-tight">150+ Languages Supported</h2>
+                <p className="text-slate-600 mt-2 text-base max-w-2xl">
+                  Universe Center Services connects your organization across more than 150 languages and regional dialects worldwide, guaranteeing qualified native-level professionals for your high-stakes interactions.
+                </p>
+              </div>
+              <div className="flex items-center gap-3 bg-gradient-to-br from-[#0B2545] via-[#0E356A] to-[#1B4F8F] text-white px-7 py-5 rounded-2xl shadow-xl flex-shrink-0 border border-blue-400/20">
+                <div className="text-4xl font-black text-amber-300">150+</div>
+                <div className="text-xs font-bold leading-tight uppercase tracking-wider text-slate-200">
+                  Languages<br/>& Dialects
+                </div>
+              </div>
+            </div>
+            
+            <div className="mb-10">
+              <h3 className="text-sm font-black uppercase tracking-widest text-brand-blue mb-4">Core Languages</h3>
               <div className="flex flex-wrap gap-3">
                 {coreLanguages.map((lang, idx) => (
                   <span key={idx} className="px-5 py-2.5 bg-brand-navy text-white rounded-xl font-bold text-sm shadow-md hover:scale-105 transition-transform cursor-default">
@@ -91,15 +109,21 @@ export default function Interpretation() {
               </div>
             </div>
             
-            <div className="pt-8 border-t border-slate-100">
-              <h3 className="text-xl font-bold text-brand-navy mb-3">Additional Languages</h3>
-              <p className="text-sm text-slate-500 mb-6 font-medium">Available through our professional network (subject to availability).</p>
-              <div className="flex flex-wrap gap-2.5">
+            <div className="pt-6 border-t border-slate-100">
+              <h3 className="text-lg font-bold text-brand-navy mb-2">Frequently Requested Languages</h3>
+              <p className="text-sm text-slate-500 mb-5 font-medium">Readily available on-demand and scheduled via our global network:</p>
+              <div className="flex flex-wrap gap-2.5 mb-6">
                 {additionalLanguages.map((lang, idx) => (
                   <span key={idx} className="px-4 py-2 bg-slate-50 border border-slate-200 text-slate-700 rounded-lg text-sm font-medium hover:bg-white hover:border-brand-blue/50 hover:text-brand-blue transition-colors cursor-default">
                     {lang}
                   </span>
                 ))}
+              </div>
+              <div className="p-4 rounded-xl bg-amber-50/80 border border-amber-200/80 text-amber-950 text-sm font-medium flex items-center justify-between flex-wrap gap-3">
+                <span>🌍 Need a specific language, dialect, or indigenous language not listed above? We support over <strong>150 languages</strong> upon request.</span>
+                <Link href="/contact" className="text-brand-blue font-bold hover:underline inline-flex items-center">
+                  Inquire now <ArrowRight className="w-4 h-4 ml-1" />
+                </Link>
               </div>
             </div>
           </div>

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Globe2, MessageSquare, HeadphonesIcon, Building2, CheckCircle2, ShieldCheck, Zap, Award, Sparkles, Users } from "lucide-react";
+import { ArrowRight, Globe2, MessageSquare, HeadphonesIcon, Building2, CheckCircle2, ShieldCheck, Zap, Award, Sparkles, Users, Languages } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 
 export default async function Home() {
@@ -117,6 +117,139 @@ export default async function Home() {
               </div>
               <Link href="/services/bpo" className="inline-flex items-center font-bold text-brand-navy group-hover:text-amber-600 transition-colors">
                 Learn more <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 150+ Supported Languages Section */}
+      <section className="py-24 bg-gradient-to-b from-white via-blue-50/40 to-white px-4 sm:px-6 lg:px-8 relative overflow-hidden border-y border-slate-100">
+        <div className="absolute top-1/2 left-0 w-80 h-80 bg-blue-100/50 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
+        <div className="absolute top-1/2 right-0 w-80 h-80 bg-amber-100/40 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
+        
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100/70 border border-brand-blue/20 text-brand-blue text-xs font-bold tracking-wider uppercase mb-4">
+              <Languages className="w-4 h-4 text-brand-blue" />
+              <span>Global Linguistic Reach</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-brand-navy tracking-tight mb-4">
+              150+ Languages Supported Worldwide
+            </h2>
+            <p className="text-lg text-slate-600 leading-relaxed">
+              We connect your business with certified interpreters and native linguists across more than 150 languages and regional dialects, available 24/7/365 for on-demand or scheduled support.
+            </p>
+          </div>
+
+          {/* Primary High-Demand Languages */}
+          <div className="mb-12">
+            <h3 className="text-xs font-black uppercase tracking-wider text-slate-500 mb-6 text-center">
+              Core High-Volume Languages
+            </h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+              {[
+                { name: "Haitian Creole", native: "Kreyòl Ayisyen", flag: "🇭🇹", tag: "Primary Specialty" },
+                { name: "English", native: "English", flag: "🇺🇸 / 🇬🇧", tag: "Global Standard" },
+                { name: "Spanish", native: "Español", flag: "🇪🇸 / 🇲🇽", tag: "High Demand" },
+                { name: "French", native: "Français", flag: "🇫🇷 / 🇨🇦", tag: "High Demand" },
+                { name: "Portuguese", native: "Português", flag: "🇧🇷 / 🇵🇹", tag: "High Demand" },
+              ].map((lang, idx) => (
+                <div 
+                  key={idx} 
+                  className="bg-white rounded-2xl p-5 border-2 border-brand-blue/15 hover:border-brand-blue shadow-sm hover:shadow-lg transition-all duration-300 text-center group"
+                >
+                  <div className="text-2xl mb-2">{lang.flag}</div>
+                  <div className="font-extrabold text-brand-navy text-base group-hover:text-brand-blue transition-colors">{lang.name}</div>
+                  <div className="text-xs text-slate-500 font-medium mb-3 italic">{lang.native}</div>
+                  <span className="inline-block px-2.5 py-0.5 rounded-full bg-blue-50 text-brand-blue text-[11px] font-bold">
+                    {lang.tag}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Top Global Languages Grid */}
+          <div className="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200/80 shadow-md mb-12">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6 pb-6 border-b border-slate-100">
+              <div>
+                <h4 className="text-xl font-black text-brand-navy">Worldwide Language Capabilities</h4>
+                <p className="text-sm text-slate-500">Available across Healthcare, Legal, Government, Education, and Corporate sectors</p>
+              </div>
+              <span className="px-3.5 py-1.5 rounded-full bg-amber-50 border border-amber-300/60 text-amber-900 text-xs font-bold">
+                150+ Languages Covered
+              </span>
+            </div>
+
+            <div className="flex flex-wrap gap-2.5">
+              {[
+                "Arabic (العربية)",
+                "Mandarin Chinese (中文)",
+                "Cantonese (粵語)",
+                "Japanese (日本語)",
+                "Korean (한국어)",
+                "German (Deutsch)",
+                "Italian (Italiano)",
+                "Dutch (Nederlands)",
+                "Russian (Русский)",
+                "Turkish (Türkçe)",
+                "Hindi (हिन्दी)",
+                "Vietnamese (Tiếng Việt)",
+                "Tagalog (Filipino)",
+                "Polish (Polski)",
+                "Romanian (Română)",
+                "Greek (Ελληνικά)",
+                "Ukrainian (Українська)",
+                "Bengali (বাংলা)",
+                "Hebrew (עברית)",
+                "Swahili (Kiswahili)",
+                "Urdu (اردو)",
+                "Persian / Farsi (فارسی)",
+                "Amharic (አማርኛ)",
+                "Thai (ไทย)",
+                "Indonesian (Bahasa)",
+                "Punjabi (ਪੰਜਾਬੀ)",
+                "+ 125 more regional dialects & rare languages"
+              ].map((language, i) => (
+                <span 
+                  key={i}
+                  className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-colors ${
+                    i === 26 
+                      ? 'bg-gradient-to-r from-brand-blue to-brand-navy text-white font-bold shadow-sm'
+                      : 'bg-slate-100 text-slate-700 hover:bg-blue-50 hover:text-brand-blue'
+                  }`}
+                >
+                  {language}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Callout Action */}
+          <div className="bg-gradient-to-r from-brand-navy via-[#0B2545] to-brand-navy text-white rounded-3xl p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-8 shadow-xl">
+            <div className="space-y-2 text-center md:text-left">
+              <div className="inline-flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider">
+                <Sparkles className="w-4 h-4" />
+                <span>On-Demand & Scheduled Availability</span>
+              </div>
+              <h4 className="text-2xl sm:text-3xl font-black">Need a specific language or rare dialect?</h4>
+              <p className="text-slate-300 text-sm max-w-2xl">
+                Whether you require phone interpretation (OPI), video interpretation (VRI), certified document translation, or multilingual customer care in any of our 150+ supported languages, we have you covered.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto flex-shrink-0">
+              <Link 
+                href="/services/interpretation" 
+                className="inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-white text-brand-navy font-bold text-sm hover:bg-slate-100 transition-all shadow-md"
+              >
+                View Interpretation Services
+              </Link>
+              <Link 
+                href="/contact" 
+                className="inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-brand-gold hover:bg-amber-500 text-slate-950 font-bold text-sm transition-all shadow-md"
+              >
+                Request a Language
               </Link>
             </div>
           </div>

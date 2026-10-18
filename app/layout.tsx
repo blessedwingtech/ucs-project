@@ -100,7 +100,7 @@ const jsonLd = {
   logo: 'https://ucs.bittonik.com/icon.png',
   image: 'https://ucs.bittonik.com/og-image.png',
   description: 'Universe Center Services (UCS) provides professional language solutions (interpretation, translation) and business support services (BPO).',
-  email: 'info@universecenterservices.com',
+  email: 'hiring.ucs@gmail.com',
   priceRange: '$$',
   address: {
     '@type': 'PostalAddress',

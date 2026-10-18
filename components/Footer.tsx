@@ -51,11 +51,11 @@ export default function Footer() {
             <h4 className="text-lg font-bold mb-6 text-white tracking-tight">Contact</h4>
             <ul className="space-y-4 text-sm text-slate-300">
               <li>
-                <a href="mailto:info@universecenterservices.com" className="group flex items-center hover:text-amber-300 transition-colors">
+                <a href="mailto:hiring.ucs@gmail.com" className="group flex items-center hover:text-amber-300 transition-colors">
                   <div className="w-8 h-8 rounded-lg bg-white/10 border border-white/10 flex items-center justify-center mr-3 group-hover:bg-amber-400 group-hover:text-slate-900 transition-colors">
                     <Mail className="w-4 h-4" />
                   </div>
-                  <span className="truncate">info@universecenterservices.com</span>
+                  <span className="truncate">hiring.ucs@gmail.com</span>
                 </a>
               </li>
               <li>
@@ -74,8 +74,8 @@ export default function Footer() {
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium text-slate-400">
           <p>&copy; {new Date().getFullYear()} Universe Center Services (UCS). All rights reserved.</p>
           <div className="flex gap-6 items-center">
-            <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
+            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
             <Link href="/admin" className="hover:text-white transition-colors">Admin</Link>
             <a title="Blessed Wing Technology" href="https://bwt.bittonik.com" className="hover:text-amber-300 transition-colors">Powered by BWT</a>
           </div>

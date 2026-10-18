@@ -132,10 +132,10 @@ export default function ContactPage() {
                   <div>
                     <h3 className="text-lg font-bold text-brand-navy mb-1">Email Us</h3>
                     <p className="text-slate-500 text-sm mb-2">For general inquiries and service requests:</p>
-                    <a href="mailto:info@universecenterservices.com" className="text-brand-blue font-semibold hover:underline">
+                    <a href="mailto:hiring.ucs@gmail.com" className="text-brand-blue font-semibold hover:underline m-2">
                       hiring.ucs@gmail.com
-                    </a>
-                    <a href="mailto:info@universecenterservices.com" className="text-brand-blue font-semibold hover:underline">
+                    </a> |
+                    <a href="mailto:bentz@bittonik.com" className="text-brand-blue font-semibold hover:underline m-2">
                       bentz@bittonik.com
                     </a>
                   </div>
