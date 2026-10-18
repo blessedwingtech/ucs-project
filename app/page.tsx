@@ -142,18 +142,18 @@ export default async function Home() {
             </p>
           </div>
 
-          {/* Primary High-Demand Languages */}
+          {/* Core Languages */}
           <div className="mb-12">
             <h3 className="text-xs font-black uppercase tracking-wider text-slate-500 mb-6 text-center">
-              Core High-Volume Languages
+              Core Languages
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
               {[
                 { name: "Haitian Creole", native: "Kreyòl Ayisyen", flag: "🇭🇹", tag: "Primary Specialty" },
-                { name: "English", native: "English", flag: "🇺🇸 / 🇬🇧", tag: "Global Standard" },
-                { name: "Spanish", native: "Español", flag: "🇪🇸 / 🇲🇽", tag: "High Demand" },
-                { name: "French", native: "Français", flag: "🇫🇷 / 🇨🇦", tag: "High Demand" },
-                { name: "Portuguese", native: "Português", flag: "🇧🇷 / 🇵🇹", tag: "High Demand" },
+                { name: "English", native: "English", flag: "🇺🇸 / 🇬🇧", tag: "Core Language" },
+                { name: "Spanish", native: "Español", flag: "🇪🇸 / 🇲🇽", tag: "Core Language" },
+                { name: "French", native: "Français", flag: "🇫🇷 / 🇨🇦", tag: "Core Language" },
+                { name: "Portuguese", native: "Português", flag: "🇧🇷 / 🇵🇹", tag: "Core Language" },
               ].map((lang, idx) => (
                 <div 
                   key={idx} 
