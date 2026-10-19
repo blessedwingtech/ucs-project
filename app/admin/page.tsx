@@ -5,13 +5,13 @@ import { Mail, FileText, CheckCircle2, Clock, Plus, ArrowRight, Eye, MessageSqua
 export const dynamic = 'force-dynamic';
 
 const REASON_LABELS: Record<string, string> = {
-  information: "Information",
-  partnership: "Partenariat",
-  quote: "Demande de devis",
-  job: "Emploi / Recrutement",
-  application: "Candidature",
-  support: "Support technique",
-  other: "Autre",
+  information: "Information Request",
+  partnership: "Partnership / Business Inquiry",
+  quote: "Request a Quote",
+  job: "Job Opportunity / Recruitment",
+  application: "General Application",
+  support: "Technical Support",
+  other: "Other",
 };
 
 export default async function AdminDashboardPage() {

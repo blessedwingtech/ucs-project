@@ -4,17 +4,17 @@ import { Mail, Phone, MapPin, Send, Sparkles, CheckCircle2, Globe } from "lucide
 import { useState } from "react";
 
 const CONTACT_REASONS = [
-  { value: "information", label: "Demande d'information" },
-  { value: "partnership", label: "Partenariat" },
-  { value: "quote", label: "Demande de devis" },
-  { value: "job", label: "Offre d'emploi / Recrutement" },
-  { value: "application", label: "Candidature spontanée" },
-  { value: "support", label: "Support technique" },
-  { value: "other", label: "Autre" },
+  { value: "information", label: "Information Request" },
+  { value: "partnership", label: "Partnership / Business Inquiry" },
+  { value: "quote", label: "Request a Quote" },
+  { value: "job", label: "Job Opportunity / Recruitment" },
+  { value: "application", label: "General Application" },
+  { value: "support", label: "Technical Support" },
+  { value: "other", label: "Other" },
 ];
 
 const SERVICES = [
-  { value: "", label: "-- Sélectionnez un service (optionnel) --" },
+  { value: "", label: "-- Select a Service (Optional) --" },
   { value: "interpretation", label: "Interpretation" },
   { value: "translation", label: "Translation & Localization" },
   { value: "bpo", label: "BPO Solutions" },
@@ -65,7 +65,7 @@ export default function ContactPage() {
 
       setIsSubmitted(true);
     } catch {
-      setError("Une erreur est survenue. Veuillez réessayer ou nous contacter directement par email.");
+      setError("An error occurred. Please try again or contact us directly by email.");
     } finally {
       setIsSubmitting(false);
     }
@@ -78,12 +78,12 @@ export default function ContactPage() {
           <div className="absolute top-0 right-1/4 -translate-y-1/3 translate-x-1/3 w-96 h-96 bg-brand-blue/15 rounded-full blur-3xl pointer-events-none"></div>
           <div className="max-w-7xl mx-auto relative z-10 text-center">
             <CheckCircle2 className="w-20 h-20 text-green-400 mx-auto mb-6" />
-            <h1 className="text-4xl sm:text-5xl font-black tracking-tight mb-6">Message envoyé !</h1>
+            <h1 className="text-4xl sm:text-5xl font-black tracking-tight mb-6">Message Sent!</h1>
             <p className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
-              Merci pour votre message. Notre équipe vous répondra dans les 24 heures.
+              Thank you for contacting us. Our team will get back to you within 24 hours.
             </p>
             <a href="/" className="inline-flex items-center mt-8 px-8 py-4 rounded-xl bg-gradient-to-r from-brand-blue to-brand-blue-light text-white font-bold text-lg shadow-xl hover:scale-105 active:scale-95 transition-all duration-200">
-              Retour à l&apos;accueil
+              Back to Home
             </a>
           </div>
         </section>

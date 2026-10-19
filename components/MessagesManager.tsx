@@ -16,13 +16,13 @@ type Message = {
 };
 
 const REASON_LABELS: Record<string, string> = {
-  information: "Demande d'information",
-  partnership: "Partenariat",
-  quote: "Demande de devis",
-  job: "Offre d'emploi / Recrutement",
-  application: "Candidature",
-  support: "Support technique",
-  other: "Autre",
+  information: "Information Request",
+  partnership: "Partnership / Business Inquiry",
+  quote: "Request a Quote",
+  job: "Job Opportunity / Recruitment",
+  application: "General Application",
+  support: "Technical Support",
+  other: "Other",
 };
 
 export default function MessagesManager({ 
